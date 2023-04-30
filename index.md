@@ -1,5 +1,6 @@
 ---
-title: Advanced Color Fixes 
+title: Advanced Color Fixes
+author: John Patrick Messerly 
 ---
 
 This three part article covers:
