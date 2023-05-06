@@ -52,6 +52,8 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 ![recursive](diagrams/recursive.png)
 <br>
 <br>
+
+
 ### This project assumes that...
 
 *   You have a strong understanding of basic color theory, including HSV coordinates, as well as basic white balance concepts (the gray world algorithm)
