@@ -6,9 +6,9 @@ author: John Patrick Messerly
 
   
 
-<p align="center">
+
   ![cie_scatter](diagrams/model2.png)
-</p>
+
 
 
 
