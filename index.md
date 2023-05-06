@@ -50,7 +50,7 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 
 <br>
 
-![recursive](diagrams/3dlut.png)
+![recursive](diagrams/recursive.png)
 
 <br>
 <br>
