@@ -3,7 +3,7 @@ title: Advanced Color Fixes with Varational Autoencoders
 author: John Patrick Messerly 
 ---
 
-
+<br>
   
 
 
