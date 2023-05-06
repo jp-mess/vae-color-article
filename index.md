@@ -82,39 +82,39 @@ Although it does not assume you know GIMP, I suggest you download it (for free) 
 <br>
 <br>
 
-![recursive](diagrams/natales.png)
+![natales](diagrams/natales.png)
 
 <br>
 <br>
 
-![recursive](diagrams/coffee.png)
+![coffee](diagrams/coffee.png)
 
 <br>
 <br>
 
-![recursive](diagrams/garage.png)
+![garage](diagrams/garage.png)
 
 <br>
 <br>
 
-![recursive](diagrams/skates.png)
+![skates](diagrams/skates.png)
 
 <br>
 <br>
 
-![recursive](diagrams/vsco.png)
+![vsco](diagrams/vsco.png)
 
 <br>
 <br>
 
-![recursive](diagrams/paragonia1.png)
+![patagonia1](diagrams/paragonia1.png)
 
 <br>
 <br>
 
-![recursive](diagrams/paragonia2.png)
+![patagonia2](diagrams/paragonia2.png)
 
 <br>
 <br>
 
-![recursive](diagrams/patagonia3.png)
+![patagonia3](diagrams/patagonia3.png)
