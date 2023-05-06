@@ -1,14 +1,18 @@
 ---
-title: Advanced Color Fixes
+title: Advanced Color Fixes with Varational Autoencoders
 author: John Patrick Messerly 
 ---
 
 
 <p align="center">
-  <img src=https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/model1.png?raw=true" width=60% height=60%/>
+  <img src=https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/model2.png?raw=true" width=60% height=60%/>
 </p>
 
-
+### Not generative, but worth a look
+                                                                                                         
+                                                                                     
+                                                                                                         
+                                                                                                         
 ### This project assumes that...
 
 *   You have a strong understanding of basic color theory, including HSV coordinates, as well as basic white balance concepts (the gray world algorithm)
