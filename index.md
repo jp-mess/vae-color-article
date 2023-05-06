@@ -48,7 +48,7 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 
 <br>
 <p align="center">
-  <img src="diagrams/recursive.png" width=60% height=60%/>
+  <img src="diagrams/recursive.png" width=70% height=70%/>
 </p>
 <br>
      
@@ -60,7 +60,6 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 
 Although it does not assume you know GIMP, I suggest you download it (for free) and try it out! It will get you through most of your image data needs when you don't feel like writing an entire python script to do something.
      
-### Future work
      
 
 
