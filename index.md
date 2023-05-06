@@ -77,6 +77,44 @@ Although it does not assume you know GIMP, I suggest you download it (for free) 
      
      
 
+# Sample Results
 
+<br>
+<br>
 
+![recursive](diagrams/natales.png)
 
+<br>
+<br>
+
+![recursive](diagrams/coffee.png)
+
+<br>
+<br>
+
+![recursive](diagrams/garage.png)
+
+<br>
+<br>
+
+![recursive](diagrams/skates.png)
+
+<br>
+<br>
+
+![recursive](diagrams/vsco.png)
+
+<br>
+<br>
+
+![recursive](diagrams/paragonia1.png)
+
+<br>
+<br>
+
+![recursive](diagrams/paragonia2.png)
+
+<br>
+<br>
+
+![recursive](diagrams/patagonia3.png)
