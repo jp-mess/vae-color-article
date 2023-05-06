@@ -4,7 +4,7 @@ author: John Patrick Messerly
 ---
 
 <br>
-  
+<br>  
 
 
 ![cie_scatter](diagrams/model2.png)
