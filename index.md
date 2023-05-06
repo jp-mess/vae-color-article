@@ -21,7 +21,7 @@ A big disadvantage of this scheme is that the encoded representations can't be d
 <br>
 
 <p align="center">
-  <img src="diagrams/barista.png" width=60% height=60%/>
+  <img src="./diagrams/barista.png" width=60% height=60%/>
 </p>
 
 <br>
