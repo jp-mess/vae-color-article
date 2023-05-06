@@ -7,7 +7,7 @@ author: John Patrick Messerly
   <img src=https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/model2.png?raw=true" width=60% height=60%/>
 </p>
 
-### Altering the colors and lighting with Stability AI's VAEs
+### Manipulating Colors and Lighting with Stability AI's VAEs
 
 By using Variational Autoencoders, Stability AI has made working with generative AI much easier. These autoencoders compress images into small (28 x 28 x 28 x 8) vectors that can be easily stored and processed on servers and standard GPUs. The compressed space is more organized than the original, meaning that when these vectors are manipulated with other algorithms, the resulting images will be coherent. For example, a minor distortion in the compressed space will result in a hairstyle change in the original image space.
 
