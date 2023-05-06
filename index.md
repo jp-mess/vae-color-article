@@ -59,7 +59,7 @@ This section covers dataset curation with 1D and 3D LUTs, and describes the limi
 
 <br>
 
-This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why this works so well, but at the end of the day I can only guess.
+This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why my technique works as well as it does when you apply it iteratively, but it's hard to prove anything rigorously in this field.
 
 <br>
 
