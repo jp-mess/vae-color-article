@@ -16,6 +16,8 @@ By using Variational Autoencoders, Stability AI has made working with generative
 
 A big disadvantage of this scheme is that the encoded representations can't be decoded perfectly back into the originals. The "phase" of the image, a term I loosely use here to describe the shape and details, will be distorted. This is why AI art often contains "messed up faces". Below is an encoded and decoded image of a barista. Clearly, the decoded image is unusable. Also, the the fact that our VAE can only encode/decode small images (244 x 244) seems to negate its use in actual image enhancement pipelines.
 
+<br>
+
 <p align="center">
   <img src="diagrams/barista.png" width=60% height=60%/>
 </p>
