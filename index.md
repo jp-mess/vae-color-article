@@ -7,7 +7,7 @@ author: John Patrick Messerly
   
 
 
-  ![cie_scatter](diagrams/model2.png)
+![cie_scatter](diagrams/model2.png)
 
 
 
@@ -20,9 +20,7 @@ A big disadvantage of this scheme is that the encoded representations can't be d
 
 <br>
 
-<p align="center">
-  <img src="./diagrams/barista.png" width=60% height=60%/>
-</p>
+![barista](diagrams/barista.png)
 
 <br>
 
