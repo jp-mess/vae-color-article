@@ -4,9 +4,11 @@ author: John Patrick Messerly
 ---
 
 
-  <img src="diagrams/model2.png" width=60% height=60%/>
+  
 
-
+<p align="center">
+  ![cie_scatter](diagrams/model2.png)
+</p>
 
 
 
