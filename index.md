@@ -13,6 +13,10 @@ By using Variational Autoencoders, Stability AI has made working with generative
 
 A big disadvantage of this scheme is that the encoded representations can't be decoded perfectly back into the originals. The "phase" of the image, a term I loosely use here to describe the shape and details, will be distorted. This is why AI art often contains "messed up faces". Below is an encoded and decoded image of a barista. Clearly, the decoded image is unusable.
 
+<p align="center">
+  <img src=https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/barista.png?raw=true" width=60% height=60%/>
+</p>
+
 What if we only want to change the colors and lighting of our image instead of altering its "phase"? In the graphics and film industries, "Look Up Tables" are commonly used to adjust colors in images by mapping old colors to new ones. These tables are small in size (33 x 33 x 33 x 3) and can be applied to images of any resolution. You can follow this logic in reverse: if you want to learn a color and exposure mapping that "fixes" a high-resolution image, you shouldn't need to use the original full-sized image to obtain this mapping.                                    
                                                                                                          
 ### This project assumes that...
