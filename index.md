@@ -82,7 +82,7 @@ Although it does not assume you know GIMP, I suggest you download it (for free) 
 <br>
 <br>
 
-![natales](diagrams/natales.png)
+![natales](diagrams/natales.jpg)
 
 <br>
 <br>
@@ -107,12 +107,12 @@ Although it does not assume you know GIMP, I suggest you download it (for free) 
 <br>
 <br>
 
-![patagonia1](diagrams/paragonia1.png)
+![patagonia1](diagrams/patagonia1.png)
 
 <br>
 <br>
 
-![patagonia2](diagrams/paragonia2.png)
+![patagonia2](diagrams/patagonia2.png)
 
 <br>
 <br>
