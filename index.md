@@ -43,14 +43,18 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 
 ### Part 2: Dataset Curation
 
+<br>
+
+![3DLUT](diagrams/3dlut.png)
+
+<br>
+
 [Part 2](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/P2.html): This section covers dataset curation with 1D and 3D LUTs, and describes the limitations of generating a distortion dataset "randomly". It also includes a tutorial on how to create 3D LUTs using GIMP that can be applied to any image you like. There are probably radiometric and colorimetric distortions you'd like to be able to neutralize that aren't covered here, and learning how to build custom 3D LUTs is a good step forward for solving those problems.
 
 <br>
 
 
 ### Part 3: Denoising Algorithm Overview
-
-![3DLUT](diagrams/3dlut.png)
 
 <br>
 
