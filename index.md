@@ -4,8 +4,11 @@ author: John Patrick Messerly
 ---
 
 <p align="center">
-  <img src=https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/model2.png?raw=true" width=60% height=60%/>
+  <img src="diagrams/model2.png" width=60% height=60%/>
 </p>
+
+
+
 
 # Manipulating Colors and Lighting with Stability AI's VAEs
 
@@ -14,7 +17,7 @@ By using Variational Autoencoders, Stability AI has made working with generative
 A big disadvantage of this scheme is that the encoded representations can't be decoded perfectly back into the originals. The "phase" of the image, a term I loosely use here to describe the shape and details, will be distorted. This is why AI art often contains "messed up faces". Below is an encoded and decoded image of a barista. Clearly, the decoded image is unusable. Also, the the fact that our VAE can only encode/decode small images (244 x 244) seems to negate its use in actual image enhancement pipelines.
 
 <p align="center">
-  <img src="https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/barista.png?raw=true" width=60% height=60%/>
+  <img src="diagrams/barista.png" width=60% height=60%/>
 </p>
 
 What if we only want to change the colors and lighting of our image instead of altering its "phase"? In the graphics and film industries, "Look Up Tables" are commonly used to adjust colors in images by mapping old colors to new ones. These tables are small in size (33 x 33 x 33 x 3) and can be applied to images of any resolution. You can follow this logic in reverse: if you want to learn a color and exposure mapping that "fixes" a high-resolution image, you shouldn't need to use the original full-sized image to obtain this mapping.                                    
@@ -30,7 +33,7 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 [Part 2](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/P2.html): This section covers dataset curation with 1D and 3D LUTs, and describes the limitations of generating a distortion dataset "randomly". It also includes a tutorial on how to create 3D LUTs using GIMP that can be applied to any image you like. There are probably radiometric and colorimetric distortions you'd like to be able to neutralize that aren't covered here, and learning how to build custom 3D LUTs is a good step forward for solving those problems.
 
 <p align="center">
-  <img src="https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/3dlut.png?raw=true" width=60% height=60%/>
+  <img src="diagrams/3dlut.png" width=60% height=60%/>
 </p>
 
 [Part 3](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/05/P3.html): The last part of this blog post covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why this works so well, but at the end of the day I can only guess.
