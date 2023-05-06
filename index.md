@@ -9,7 +9,8 @@ author: John Patrick Messerly
 
 ![cie_scatter](diagrams/model2.png)
 
-
+<br>
+<br>
 
 
 # Manipulating Colors and Lighting with VAEs
