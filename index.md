@@ -57,8 +57,6 @@ This section covers dataset curation with 1D and 3D LUTs, and describes the limi
 
 ## [Part 3: Denoising Algorithm Overview](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/05/P3.html)
 
-<br>
-
 This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why my technique works as well as it does when you apply it iteratively, but it's hard to prove anything rigorously in this field.
 
 <br>
@@ -69,7 +67,7 @@ This last section covers the actual machine learning involved, and the other par
 <br>
 
 
-### This documentation assumes that...
+### This project documentation assumes that...
 
 *   You have a strong understanding of basic color theory, including HSV coordinates, as well as basic white balance concepts (the gray world algorithm)
 *   You're comfortable with pytorch and fully convolutional neural networks, and you've at least heard of GANs 
