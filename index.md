@@ -37,7 +37,7 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 
 ### [Part 1: Results Gallery](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/P1.html)
 
-In this introduction, I will explain the problem's scope and the challenging color and lighting distortions that are hard to eliminate even with Photoshop tools. My main results gallery is here.
+I've dedicated the first section to explaining the problem's scope, and demonstrating results in a small gallery. A lot of the images I focused on restoring contain challenging color and lighting distortions that are hard to eliminate even with Photoshop tools. Some of this page is dedicated to explaining the general problem of color balance, but the writing does assume you are somewhat familiar with computational photography already.
 
 <br>
 
