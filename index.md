@@ -42,16 +42,14 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 
 <br>
 
- ![3DLUT](diagrams/3dlut.png)
+![3DLUT](diagrams/3dlut.png)
 
 <br>
 
 [Part 3](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/05/P3.html): This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why this works so well, but at the end of the day I can only guess.
 
 <br>
-<p align="center">
-  <img src="diagrams/recursive.png" width=70% height=70%/>
-</p>
+![3DLUT](diagrams/recursive.png)
 <br>
 <br>
 ### This project assumes that...
