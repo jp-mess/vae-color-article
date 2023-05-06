@@ -35,9 +35,9 @@ What if we only want to change the colors and lighting of our image instead of a
 In this blog post, I discuss the challenge of removing intense colored lighting from images, which cannot be done by simple "white balance" algorithms. While the abstract above advertises the use of Variational Autoencoders, the real difficulty was creating an image dataset that accurately portrayed these distortions. The post is divided into three parts for clarity.
 
 
-### Part 1: Results Gallery
+### [Part 1: Results Gallery](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/P1.html)
 
-[Part 1](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/P1.html): In this introduction, I will explain the problem's scope and the challenging color and lighting distortions that are hard to eliminate even with Photoshop tools. My main results gallery is here.
+In this introduction, I will explain the problem's scope and the challenging color and lighting distortions that are hard to eliminate even with Photoshop tools. My main results gallery is here.
 
 <br>
 
