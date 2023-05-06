@@ -26,7 +26,9 @@ A big disadvantage of this scheme is that the encoded representations can't be d
 <br>
 
 What if we only want to change the colors and lighting of our image instead of altering its "phase"? In the graphics and film industries, "Look Up Tables" are commonly used to adjust colors in images by mapping old colors to new ones. These tables are small in size (33 x 33 x 33 x 3) and can be applied to images of any resolution. You can follow this logic in reverse: if you want to learn a color and exposure mapping that "fixes" a high-resolution image, you shouldn't need to use the original full-sized image to obtain this mapping.                                    
-     
+ 
+<br>
+<br>
      
 ## Project Structure
 
@@ -34,6 +36,7 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
 
 [Part 1](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/P1.html): In this introduction, I will explain the problem's scope and the challenging color and lighting distortions that are hard to eliminate even with Photoshop tools. My main results gallery is here.
 
+<br>
 
 [Part 2](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/P2.html): This section covers dataset curation with 1D and 3D LUTs, and describes the limitations of generating a distortion dataset "randomly". It also includes a tutorial on how to create 3D LUTs using GIMP that can be applied to any image you like. There are probably radiometric and colorimetric distortions you'd like to be able to neutralize that aren't covered here, and learning how to build custom 3D LUTs is a good step forward for solving those problems.
 
@@ -50,7 +53,7 @@ In this blog post, I discuss the challenge of removing intense colored lighting 
   <img src="diagrams/recursive.png" width=70% height=70%/>
 </p>
 <br>
-     
+<br>
 ### This project assumes that...
 
 *   You have a strong understanding of basic color theory, including HSV coordinates, as well as basic white balance concepts (the gray world algorithm)
