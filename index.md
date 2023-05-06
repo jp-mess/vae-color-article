@@ -4,13 +4,11 @@ author: John Patrick Messerly
 ---
 
 
-<p align="center">
-  <img src=https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/model2.png?raw=true" width=60% height=60%/>
-</p>
 
 ### Not generative, but worth a look
                                                                                                          
-                                                                                     
+Stability AI has made generative AI less tedious to work with through the use of Variational Autoencoders. The compression algorithms map
+                                                                                                         
                                                                                                          
                                                                                                          
 ### This project assumes that...
@@ -20,3 +18,8 @@ author: John Patrick Messerly
 *   You're familiar with variational autoencoders, the latent space, and programming with the HuggingFace diffusers library. If not, then you've heard of them, and you'd like to learn more
 
 Although it does not assume you know GIMP, I suggest you download it (for free) and try it out! It will get you through most of your image data needs when you don't feel like writing an entire python script to do something.
+
+
+<p align="center">
+  <img src=https://github.com/messy-bytes/Advanced-ML-Color-Fixes/blob/main/diagrams/model2.png?raw=true" width=60% height=60%/>
+</p>
