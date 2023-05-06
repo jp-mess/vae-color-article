@@ -20,6 +20,8 @@ A big disadvantage of this scheme is that the encoded representations can't be d
   <img src="diagrams/barista.png" width=60% height=60%/>
 </p>
 
+<br>
+
 What if we only want to change the colors and lighting of our image instead of altering its "phase"? In the graphics and film industries, "Look Up Tables" are commonly used to adjust colors in images by mapping old colors to new ones. These tables are small in size (33 x 33 x 33 x 3) and can be applied to images of any resolution. You can follow this logic in reverse: if you want to learn a color and exposure mapping that "fixes" a high-resolution image, you shouldn't need to use the original full-sized image to obtain this mapping.                                    
      
      
