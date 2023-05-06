@@ -41,7 +41,7 @@ In this introduction, I will explain the problem's scope and the challenging col
 
 <br>
 
-### Part 2: Dataset Curation
+### [Part 2: Dataset Curation](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/P2.html)
 
 <br>
 
@@ -49,16 +49,16 @@ In this introduction, I will explain the problem's scope and the challenging col
 
 <br>
 
-[Part 2](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/P2.html): This section covers dataset curation with 1D and 3D LUTs, and describes the limitations of generating a distortion dataset "randomly". It also includes a tutorial on how to create 3D LUTs using GIMP that can be applied to any image you like. There are probably radiometric and colorimetric distortions you'd like to be able to neutralize that aren't covered here, and learning how to build custom 3D LUTs is a good step forward for solving those problems.
+This section covers dataset curation with 1D and 3D LUTs, and describes the limitations of generating a distortion dataset "randomly". It also includes a tutorial on how to create 3D LUTs using GIMP that can be applied to any image you like. There are probably radiometric and colorimetric distortions you'd like to be able to neutralize that aren't covered here, and learning how to build custom 3D LUTs is a good step forward for solving those problems.
 
 <br>
 
 
-### Part 3: Denoising Algorithm Overview
+### [Part 3: Denoising Algorithm Overview](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/05/P3.html)
 
 <br>
 
-[Part 3](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/05/P3.html): This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why this works so well, but at the end of the day I can only guess.
+This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why this works so well, but at the end of the day I can only guess.
 
 <br>
 
@@ -68,7 +68,7 @@ In this introduction, I will explain the problem's scope and the challenging col
 <br>
 
 
-### This project assumes that...
+### This documentation assumes that...
 
 *   You have a strong understanding of basic color theory, including HSV coordinates, as well as basic white balance concepts (the gray world algorithm)
 *   You're comfortable with pytorch and fully convolutional neural networks, and you've at least heard of GANs 
