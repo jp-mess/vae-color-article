@@ -1,5 +1,5 @@
 ---
-title: Variational Autoencoder Color Balance
+title: Fixing Color and Lighting with Variational Autoencoders
 ---
 
 <br>
@@ -10,9 +10,6 @@ title: Variational Autoencoder Color Balance
 
 <br>
 <br>
-
-
-# Manipulating Colors and Lighting with VAEs
 
 ### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
 
