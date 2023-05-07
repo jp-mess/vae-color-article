@@ -1,5 +1,5 @@
 ---
-title: Advanced Color Fixes with Varational Autoencoders
+title: Advanced Color Fixes with Variational Autoencoders
 author: John Patrick Messerly 
 ---
 
