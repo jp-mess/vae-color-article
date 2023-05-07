@@ -75,7 +75,8 @@ This last section covers the actual machine learning involved, and the other par
 
 Although it does not assume you know GIMP, I suggest you download it (for free) and try it out! It will get you through most of your image data needs when you don't feel like writing an entire python script to do something.
      
-     
+<br>
+<br>
 
 # Sample Results
 
