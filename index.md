@@ -57,7 +57,7 @@ This section covers dataset curation with 1D and 3D LUTs, and describes the limi
 
 ## [Part 3: Denoising Algorithm Overview](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/05/P3.html)
 
-This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why my technique works as well as it does when you apply it iteratively, but it's hard to prove anything rigorously in this field.
+This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why my technique works as well as it does when you apply it iteratively, but at the end of the day it's anyone's guess.
 
 <br>
 
@@ -74,7 +74,7 @@ This last section covers the actual machine learning involved, and the other par
 *   You're familiar with variational autoencoders, the latent space, and programming with the HuggingFace diffusers library. If not, then you've heard of them, and you'd like to learn more
 
 Although it does not assume you know GIMP, I suggest you download it (for free) and try it out! It will get you through most of your image data needs when you don't feel like writing an entire python script to do something.
-     
+          
 <br>
 <br>
 
