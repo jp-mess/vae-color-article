@@ -11,7 +11,7 @@ title: Variational Autoencoder Color Balance
 <br>
 <br>
 
-### author: [John (Jack) Messerly]([https://link-url-here.org](https://www.linkedin.com/in/jack-messerly-567b9b96/))
+## [author: John (Jack) Messerly](https://link-url-here.org](https://www.linkedin.com/in/jack-messerly-567b9b96/)
 
 # Manipulating Colors and Lighting with VAEs
 
