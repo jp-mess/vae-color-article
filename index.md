@@ -1,5 +1,5 @@
 ---
-title: Fixing Color and Lighting with Variational Autoencoders
+title: Color Balance with Variational Autoencoders
 ---
 
 <br>
