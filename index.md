@@ -1,6 +1,8 @@
 ---
-title: Color Balance with Variational Autoencoders
+title: Color Tweaking with Variational Autoencoders
 ---
+
+### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
 
 <br>
 <br>  
@@ -11,7 +13,7 @@ title: Color Balance with Variational Autoencoders
 <br>
 <br>
 
-### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
+
 
 By building off of Variational Autoencoders, Stability AI has made it possible to train generative AIs without expensive resources. These autoencoders compress images into small (28 x 28 x 28 x 8) vectors that can be easily stored and processed on servers and standard GPUs. The compressed space is more organized than the original, meaning that when these vectors are manipulated with other algorithms, the resulting images will be coherent. For example, a minor distortion in the compressed space will result in a hairstyle change in the original image space.
 
