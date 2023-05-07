@@ -223,7 +223,7 @@ decoded
 
 ## Setting up the network architecture / training loop
 
-In the second part of this blog post, we thoroughly discussed the process of creating a dataset of "true" and "distorted" image pairs to effectively remove complex colored lighting effects. Now, let's set up a basic architecture/training loop in Pytorch. Essentially, any fully convolutional neural network with adequate parameters can be used for this task. Here are a few important points to keep in mind:
+In the [second part of this blog post](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html), we thoroughly discussed the process of creating a dataset of "true" and "distorted" image pairs to effectively remove complex colored lighting effects. Now, let's set up a basic architecture/training loop in Pytorch. Essentially, any fully convolutional neural network with adequate parameters can be used for this task. Here are a few important points to keep in mind:
 
 1. Do not whiten your image before training by dividing out the variance. This will mess up your color channels, and you won't learn anything useful
 2. The input encoded images are 28x28x28x8, which isn't very large, so I recommend an input convolutional kernel size of 3. Increasing it beyond that makes the network perform worse. 
