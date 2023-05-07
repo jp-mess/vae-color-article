@@ -1,6 +1,5 @@
 ---
-title: Advanced Color Fixes with Variational Autoencoders
-author: John Patrick Messerly 
+title: Variational Autoencoder Color Balance
 ---
 
 <br>
@@ -12,6 +11,7 @@ author: John Patrick Messerly
 <br>
 <br>
 
+### author: [John (Jack) Messerly]([https://link-url-here.org](https://www.linkedin.com/in/jack-messerly-567b9b96/))
 
 # Manipulating Colors and Lighting with VAEs
 
