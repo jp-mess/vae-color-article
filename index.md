@@ -1,5 +1,5 @@
 ---
-title: Color Tweaking with Variational Autoencoders
+title: Color Edits with Variational Autoencoders
 ---
 
 ### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
