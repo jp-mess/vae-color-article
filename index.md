@@ -32,7 +32,7 @@ What if we only want to change the colors and lighting of our image instead of a
      
 # Project Structure
 
-In this blog post, I discuss the challenge of removing intense colored lighting from images, which cannot be done by simple "white balance" algorithms, and takes expert skill to fix in manual retouching tools. While the abstract above advertises the use of Variational Autoencoders, the real difficulty was creating an image dataset that accurately portrayed these distortions. The post is divided into three parts for clarity.
+The goal of this post is to show how Stability AI's pre-trained VAEs can be used to re-color and re-light images more efficiently than current approaches. The post is divided into three parts for clarity.
 
 <br>
 
