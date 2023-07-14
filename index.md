@@ -32,7 +32,7 @@ What if we only want to change the colors and lighting of our image instead of a
      
 # Project Structure
 
-The goal of this post is to show how Stability AI's pre-trained VAEs can be used to re-color and re-light images more efficiently than current approaches. The post is divided into three parts for clarity.
+The goal of this (informal) post is to show how Stability AI's pre-trained VAEs can be used to re-color and re-light images more efficiently than current approaches. The post is divided into three parts for clarity.
 
 <br>
 
