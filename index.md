@@ -13,7 +13,21 @@ title: Colored Lighting Removal with VAEs
 <br>
 <br>
 
+# Summary
 
+In color balance, a poorly lit (or awkwardly tinted) image has its colors re-distributed to make a more beautiful image. While machine learning is the standard method for re-assessing colors, the common practice of directly applying a fully connected CNN to re-regress the colors has some annoying issues:
+
+1. You can lose details about the edges, textures and general shape of the image, and the resolution of your training images versus test images has a strong impact on this
+2. The re-colored image can be uneven in unexpected areas where there is low data
+3. If your images are large, training is very slow and inefficient
+
+However, when we play around with colors we don't usually want to tediously re-color every single pixel in the new image. We usually just want to change the *distribution* of colors, such that we build a table that maps old colors into new ones. New-ish tools from AI art can help us do this very efficiently. Pictured above is an example of how this works: the color distribution is "extracted" from an image using a variational autoencoder, which is updated (using an intermediate network) into a brand new color distirbution. A second intermediate network (or linear model) re-colors the original image from this new, learned distribution.
+
+<br>
+<br>
+
+
+# HuggingFace's toolbox
 
 Autoencoders, and their fancier cousin, the Variational Autoencoder, are just data compression algorithms. They've become a hot topic recently because its been shown that a lot of AI art algorithms (including stable diffusion) can operate in the smaller compressed space. The VAE's trained by Stability AI that are available on HuggingFace compress images into small (28 x 28 x 28 x 8) vectors that can be easily stored and processed on servers and standard GPUs. The compressed space is more organized than the original, meaning that when these vectors are manipulated with other algorithms, the resulting images will be coherent. For example, a minor distortion in the compressed space will result in a hairstyle change in the original image space.
 
