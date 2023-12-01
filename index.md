@@ -21,7 +21,7 @@ The line between "color balance" and "image enhancement" is a little blurred, an
 
 
 1. You can lose details about the edges, textures and general shape of the image, and the resolution of your training images versus test images has a strong impact on this
-2. The re-colored image can be uneven in unexpected areas where there is low data
+2. The re-colored image can color things in unexpected ways when the data is low, i.e. the coloring isn't enforced to be regular
 3. If your images are large, training is very slow and inefficient
 
 
