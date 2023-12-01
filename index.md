@@ -33,6 +33,12 @@ However, when we play around with colors we don't usually want to tediously re-c
 3. Because the latent representations are small (and of fixed size), training is very fast, and the resolution of your input image does not matter much
 
 <br>
+
+# Who I am, and why I wrote this
+
+I developed this algorithm on my spare time to help my dad re-color some of the film photographs he took on a trip to Patagonia. Some of these photos are available at the bottom of this page. I've worked as a professional computational photography engineer in the past, and was already very familar with the literature here. This blog post is mostly to document my methodology in solving this problem. I did not write this up as formally as a conference paper, but it should be easy to follow for anyone with an image processing background. If not, please send me a message on LinkedIn (bio at the top).
+
+<br>
 <br>
 
 
