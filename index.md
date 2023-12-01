@@ -13,6 +13,11 @@ title: Colored Lighting Removal with VAEs
 <br>
 <br>
 
+
+# Who I am, and why I wrote this
+
+I developed this algorithm on my spare time to help my dad re-color some of the film photographs he took on a trip to Patagonia. Some of these photos are available at the bottom of this page. I've worked as a professional computational photography engineer in the past, and was already very familar with the literature here. This blog post is mostly to document my methodology in solving this problem. I did not write this up as formally as I would a conference paper, but I thought the results were really good, and I wanted to share it somehow. Some of the post is dedicated to algorithm description, but a majority is about crafting datasets in more precise ways than what's usually done in academic literature. 
+
 # Summary
 
 The goal of "color balance" is to fix images with poor color quality, which in the classic case is caused by the ambient lighting in the scene being "colored" or non-neutral, such as if you took a photo in a parking garage with harsh fluorescent lighting. The optimal image color/lighting is usually defined as those that would appear under perfectly white light. An image that has been tuned with this goal in mind is said to be "white balanced". However, the "best" color adjustment for an image is ultimately rooted in preference and human psychology, and modern color adjustment often includes steps to enhance the colors in the image beyond white balance. For example, we prefer faces to appear warm in photos, no matter what the lighting is. 
@@ -32,11 +37,6 @@ However, when we play around with colors we don't usually want to tediously re-c
 2. Learning to map one color distribution to another helps ensure that your entire recoloring is regular, i.e. you won't unexpectedly recolor two "red" parts of an image to different colors, which is possible if you tried to directly regress a recoloring
 3. Because the latent representations are small (and of fixed size), training is very fast, and the resolution of your input image does not matter much
 
-<br>
-
-# Who I am, and why I wrote this
-
-I developed this algorithm on my spare time to help my dad re-color some of the film photographs he took on a trip to Patagonia. Some of these photos are available at the bottom of this page. I've worked as a professional computational photography engineer in the past, and was already very familar with the literature here. This blog post is mostly to document my methodology in solving this problem. I did not write this up as formally as a conference paper, but it should be easy to follow for anyone with an image processing background. If not, please send me a message on LinkedIn (bio at the top).
 
 <br>
 <br>
