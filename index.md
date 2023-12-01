@@ -15,11 +15,19 @@ title: Colored Lighting Removal with VAEs
 
 # Summary
 
-The goal of "color balance" is to fix images with poor color quality, e.g. awkward tinting or unnatural lighting. The optimal image color/lighting is usually defined as those that would appear under perfectly white light, but ultimately this is a problem rooted in human psychology, so data-oriented machine learning approaches are the standard way of adjusting colors these days. One of the more common ML common algorithms to fix colored lighthing is to use a fully convolutional network (FCN) to directly regress new colors, but this approach has some annoying drawbacks when used in practice:
+The goal of "color balance" is to fix images with poor color quality, which in the classic case is caused by the ambient lighting in the scene being "colored" or non-neutral, such as if you took a photo in a parking garage with harsh fluorescent lighting. The optimal image color/lighting is usually defined as those that would appear under perfectly white light. An image that has been tuned with this goal in mind is said to be "white balanced". However, the "best" color adjustment for an image is ultimately rooted in preference and human psychology, and modern color adjustment often includes steps to enhance the colors in the image beyond white balance. For example, we prefer faces to appear warm in photos, no matter what the lighting is. 
+
+<br>
+
+The line between "color balance" and "image enhancement" is a little blurred, and data-oriented machine learning approaches solve both at the same time: you adjust colors to match the distributions of colors in "pleasant" images you have trained on. One of the more common ML common algorithms to fix colored lighthing is to use a fully convolutional network (FCN) to directly regress new colors, but this approach has some annoying drawbacks when used in practice:
+
+<br>
 
 1. You can lose details about the edges, textures and general shape of the image, and the resolution of your training images versus test images has a strong impact on this
 2. The re-colored image can be uneven in unexpected areas where there is low data
 3. If your images are large, training is very slow and inefficient
+
+4. <br>
 
 However, when we play around with colors we don't usually want to tediously re-color every single pixel in the new image. We usually just want to change the *distribution* of colors, such that we build a table that maps old colors into new ones. New-ish tools from AI art can help us do this very efficiently. Pictured above is an example of how this works: the color distribution is "extracted" from an image using a variational autoencoder, which is updated (using an intermediate network) into a brand new color distirbution. A second intermediate network (or linear model) re-colors the original image from this new, learned distribution.
 
