@@ -29,7 +29,13 @@ The line between "color balance" and "image enhancement" is a little blurred, an
 
 <br>
 
-However, when we play around with colors we don't usually want to tediously re-color every single pixel in the new image. We usually just want to change the *distribution* of colors, such that we build a table that maps old colors into new ones. New-ish tools from AI art can help us do this very efficiently. Pictured above is an example of how this works: the color distribution is "extracted" from an image using a variational autoencoder, which is updated (using an intermediate network) into a brand new color distirbution. A second intermediate network (or linear model) re-colors the original image from this new, learned distribution.
+However, when we play around with colors we don't usually want to tediously re-color every single pixel in the new image. We usually just want to change the *distribution* of colors, such that we build a table that maps old colors into new ones. New tools from AI art can help us do this. Pictured above is an example of how this works: the color distribution is "extracted" from an image using a variational autoencoder, which converts the original image into a latent representation of a fixed size. A network is trained to "re-color" this latent representation (using KL divergence) into a new latent representation with a more desirable color scheme. This new representation is not decoded into a new output image: it is sampled with a second network that learns a color mapping (old color -> new color), which is then applied to the original image, so that textures and edges are perfectly preserved. The advantages of doing a "re-coloring" this way help alleviate the three problems above:
+
+<br>
+
+1. Because you are simply learning a color remapping (old color -> new color), and then applying it to your original image, you do not run the risk of destroying edges and textures
+2. Learning to map one color distribution to another helps ensure that your entire recoloring is regular, i.e. you won't unexpectedly recolor two "red" parts of an image to different colors, which is possible if you tried to directly regress a recoloring
+3. Because the latent representations are small (and of fixed size), training is very fast, and the resolution of your input image does not matter much
 
 <br>
 <br>
