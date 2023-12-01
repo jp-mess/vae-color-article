@@ -15,7 +15,7 @@ title: Colored Lighting Removal with VAEs
 
 # Summary
 
-In color balance, a poorly lit (or awkwardly tinted) image has its colors re-distributed to make a more beautiful image. While machine learning is the standard method for re-assessing colors, the common practice of directly applying a fully connected CNN to re-regress the colors has some annoying issues:
+The goal of "color balance" is to fix images with poor color quality, e.g. awkward tinting or unnatural lighting. The optimal image color/lighting is usually defined as those that would appear under perfectly white light, but ultimately this is a problem rooted in human psychology, so data-oriented machine learning approaches are the standard way of adjusting colors these days. One of the more common ML common algorithms to fix colored lighthing is to use a fully convolutional network (FCN) to directly regress new colors, but this approach has some annoying drawbacks when used in practice:
 
 1. You can lose details about the edges, textures and general shape of the image, and the resolution of your training images versus test images has a strong impact on this
 2. The re-colored image can be uneven in unexpected areas where there is low data
