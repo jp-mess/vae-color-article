@@ -14,7 +14,7 @@ title: Colored Lighting Removal with VAEs
 <br>
 
 
-# Who I am, and why I wrote this
+# About the author
 
 My name's Jack, and I'm a computer vision algorithm engineer. I developed this ML algorithm on my spare time to help my dad re-color some of the film photographs he took on a trip to Patagonia. Some of these photos are available at the bottom of this page. I've worked as a professional computational photography engineer in the past, and was already very familar with the literature here. This blog post is mostly to document my methodology in solving this problem. I did not write this up as formally as I would a conference paper, but I thought the results were pretty good, and I wanted to share it somehow. Some of the post is dedicated to algorithm description, but a majority is about crafting datasets in more advanced ways than what's usually done in academic literature. 
 
