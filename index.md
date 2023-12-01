@@ -27,7 +27,7 @@ The line between "color balance" and "image enhancement" is a little blurred, an
 2. The re-colored image can be uneven in unexpected areas where there is low data
 3. If your images are large, training is very slow and inefficient
 
-4. <br>
+<br>
 
 However, when we play around with colors we don't usually want to tediously re-color every single pixel in the new image. We usually just want to change the *distribution* of colors, such that we build a table that maps old colors into new ones. New-ish tools from AI art can help us do this very efficiently. Pictured above is an example of how this works: the color distribution is "extracted" from an image using a variational autoencoder, which is updated (using an intermediate network) into a brand new color distirbution. A second intermediate network (or linear model) re-colors the original image from this new, learned distribution.
 
