@@ -17,21 +17,16 @@ title: Colored Lighting Removal with VAEs
 
 The goal of "color balance" is to fix images with poor color quality, which in the classic case is caused by the ambient lighting in the scene being "colored" or non-neutral, such as if you took a photo in a parking garage with harsh fluorescent lighting. The optimal image color/lighting is usually defined as those that would appear under perfectly white light. An image that has been tuned with this goal in mind is said to be "white balanced". However, the "best" color adjustment for an image is ultimately rooted in preference and human psychology, and modern color adjustment often includes steps to enhance the colors in the image beyond white balance. For example, we prefer faces to appear warm in photos, no matter what the lighting is. 
 
-<br>
-
 The line between "color balance" and "image enhancement" is a little blurred, and data-oriented machine learning approaches solve both at the same time: you adjust colors to match the distributions of colors in "pleasant" images you have trained on. One of the more common ML common algorithms to fix colored lighthing is to use a fully convolutional network (FCN) to directly regress new colors, but this approach has some annoying drawbacks when used in practice:
 
-<br>
 
 1. You can lose details about the edges, textures and general shape of the image, and the resolution of your training images versus test images has a strong impact on this
 2. The re-colored image can be uneven in unexpected areas where there is low data
 3. If your images are large, training is very slow and inefficient
 
-<br>
 
 However, when we play around with colors we don't usually want to tediously re-color every single pixel in the new image. We usually just want to change the *distribution* of colors, such that we build a table that maps old colors into new ones. New tools from AI art can help us do this. Pictured above is an example of how this works: the color distribution is "extracted" from an image using a variational autoencoder, which converts the original image into a latent representation of a fixed size. A network is trained to "re-color" this latent representation (using KL divergence) into a new latent representation with a more desirable color scheme. This new representation is not decoded into a new output image: it is sampled with a second network that learns a color mapping (old color -> new color), which is then applied to the original image, so that textures and edges are perfectly preserved. The advantages of doing a "re-coloring" this way help alleviate the three problems above:
 
-<br>
 
 1. Because you are simply learning a color remapping (old color -> new color), and then applying it to your original image, you do not run the risk of destroying edges and textures
 2. Learning to map one color distribution to another helps ensure that your entire recoloring is regular, i.e. you won't unexpectedly recolor two "red" parts of an image to different colors, which is possible if you tried to directly regress a recoloring
