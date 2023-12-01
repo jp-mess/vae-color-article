@@ -14,9 +14,7 @@ title: Colored Lighting Removal with VAEs
 <br>
 
 
-# About the author
 
-My name's Jack, and I'm a computer vision algorithm engineer. I developed this ML algorithm on my spare time to help my dad re-color some of the film photographs he took on a trip to Patagonia. Some of these photos are available at the bottom of this page. I've worked as a professional computational photography engineer in the past, and was already very familar with the literature here. This blog post is mostly to document my methodology in solving this problem. I did not write this up as formally as I would a conference paper, but I thought the results were pretty good, and I wanted to share it somehow. Some of the post is dedicated to algorithm description, but a majority is about crafting datasets in more advanced ways than what's usually done in academic literature. 
 
 # Summary
 
@@ -37,6 +35,11 @@ However, when we play around with colors we don't usually want to tediously re-c
 2. Learning to map one color distribution to another helps ensure that your entire recoloring is regular, i.e. you won't unexpectedly recolor two "red" parts of an image to different colors, which is possible if you tried to directly regress a recoloring
 3. Because the latent representations are small (and of fixed size), training is very fast, and the resolution of your input image does not matter much
 
+<br>
+
+# About the author
+
+I developed this ML algorithm on my spare time to help my dad re-color some of the film photographs he took on a trip to Patagonia. Some of these photos are available at the bottom of this page. I've worked as a professional computational photography engineer in the past, and was already very familar with the literature here. This blog post is mostly to document my methodology in solving this problem. I did not write this up as formally as I would a conference paper, but I thought the results were pretty good, and I wanted to share it somehow. Some of the post is dedicated to algorithm description, but a majority is about crafting datasets in more advanced ways than what's usually done in academic literature. 
 
 <br>
 <br>
