@@ -45,6 +45,8 @@ I developed this ML algorithm on my spare time to help my dad re-color some of t
 2. Basic ML (CNNs)
 3. Advanced statistics (latent spaces, variational auto-encoders)
 
+I do not expect familiarity with generative machine learning or AI art, but this blog post does introduce some of those tools.
+
 <br>
 <br>
 
