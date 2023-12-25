@@ -16,7 +16,7 @@ title: Colored Lighting Removal with VAEs
 
 
 
-# Summary
+# Abstract
 
 "Color balance" aims to enhance images with suboptimal color quality, typically resulting from colored ambient lighting, like the fluorescent lighting in a parking garage. The desired outcome in traditional color balancing is to replicate the colors that would be present under perfectly white light, a process known as "white balancing". However, the ideal color adjustment often depends on personal preference and psychological factors, leading modern techniques to extend beyond mere white balance to overall color enhancement. For instance, we generally prefer warmer tones in human faces, regardless of the actual lighting conditions.
 
