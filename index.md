@@ -32,9 +32,9 @@ However, powerful pre-trained varational autoencoders let you bypass these issue
 
 # About the author
 
-I created this ML algorithm during my spare time, initially to re-color old film photographs my father took in Patagonia, which were marred by ambient lighting and film damage. Traditional tools and basic white balance methods proved inadequate. Drawing on my experience as a former computational photography engineer, I designed a novel solution, the results of which are displayed at the bottom of this page.
+I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which came out poorly because he opted to use the most old fashioned (and pretentious) film camera he could possibly find. GIMP / photoshop was not enough to fix these pictures, some of which are at the bottom of this page. 
 
-This blog documents my journey and methodology in solving this unique problem. My approach diverges from the academic norm by focusing on practical dataset creation and application. While the writing is informal, it captures the essence and success of my work. Additionally, I've included insights from my literature review, notably a paper on high-performance photo enhancement, which, though not directly related, offers exciting prospects for future research. This content is geared towards readers with a background in machine learning and computational photography.
+The first section of this article investigates the initial problem, and how I found it different from traditional white balance. The second and third sections are about dataset generation and model training. The variational autoencoders aside, I think anyone with a background in python programming should be able to follow this pretty easily.
 
 <br>
 <br>
