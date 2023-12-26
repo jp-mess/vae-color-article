@@ -32,7 +32,7 @@ However, powerful pre-trained varational autoencoders let you bypass these issue
 
 # About the author
 
-I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which came out poorly because he opted to use the most old fashioned (and pretentious) film camera he could possibly find. GIMP / photoshop was not enough to fix these pictures, some of which are at the bottom of this page. 
+I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which came out poorly because he decided to use the most old fashioned (and pretentious) film camera he could find. GIMP / photoshop was not enough to fix these pictures, some of which are at the bottom of this page. 
 
 The first section of this article investigates the initial problem, and how I found it different from traditional white balance. The second and third sections are about dataset generation and model training. The variational autoencoders aside, I think anyone with a background in python programming should be able to follow this pretty easily.
 
