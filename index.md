@@ -50,7 +50,7 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 <br>
 
-<sup>1</sup> *In Stable Diffusion art generation, this "intermediate" network doesn't just modify the colors of the image, but also the composition, so you can view the algorithm on this page as an AI art algorithm that just modifies the colors. This is what happens in the "KL Divergence" part of the diagram at the top of this page.*
+<sup>1</sup> *In Stable Diffusion art generation, this "intermediate" network doesn't just modify the colors of the image, but also the composition. You can view the algorithm on this page as an AI art algorithm that just modifies the colors.
 
 <br>
 <br>
