@@ -87,7 +87,13 @@ The primary balancing network, trained with KL divergence, adjusts the encoding 
 
 <br>
 
-## Step 4: Decode to recover a "balanced" 224x224 sized tile
+## Step 4: Decode to recover "balanced" and "distorted" 224x224 sized tiles
+
+We decode both the distorted vector, and the fixed vector. Why not just the fixed? Notice how the face of the girl in these images looks wonky and weird. That is because Stable Diffusion's VAE does not decode details perfectly. We notice faces are often "off" in AI art because as humans, we are sensitive to facial distortions. Ultimately, we only care about the "color map" that can be learned between these two images. We decode a wonky "distorted" version of our image, so that we can line it up pixel-for-pixel with the "fixed" output. Then, we will train a new network (much simpler) to recolor images with this exact type of distortion.
+
+<p align="center">
+  <img src="diagrams/decoding_stage.jpg" alt="Decoding Stage">
+</p>
 
 <br>
 
