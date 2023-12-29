@@ -1,4 +1,4 @@
-# Image Color Correction Algorithm
+# Latent Space Color Correction
 
 This project implements an image color correction algorithm using a neural network approach. It learns a color mapping from a distorted image to a fixed image and iteratively applies this correction to enhance image quality.
 
