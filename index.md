@@ -48,9 +48,11 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 **I'd like to learn more about VAEs**:  I did not provide a background section on Variational Autoencoders as explaining it from scratch would be difficult.One excellent article on this topic was written by Joseph Rocca and can be found on TowardsDataScience. It is worth mentioning that he was a full-time employee at the site when he wrote it. [The article is linked here](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
 
+<br>
 
 <sup>1</sup> *In Stable Diffusion art generation, this "intermediate" network doesn't just modify the colors of the image, but also the composition, so you can view the algorithm on this page as an AI art algorithm that just modifies the colors. This is what happens in the "KL Divergence" part of the diagram at the top of this page.*
 
+<br>
 <br>
 
 # Step-by-Step Illustration
