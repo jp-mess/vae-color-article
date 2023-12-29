@@ -15,13 +15,25 @@ title: Colored Lighting Removal with VAEs
 
 # About the Author
 
-I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which he captured with the  [Malefic 617 camera](https://www.maleficcameras.com/pagina-prodotto/malefic-m617). He forgot to get a color calibration measurement in the field, and the film roll got jammed, so the film became physically damaged in the development process. GIMP / photoshop was not enough to fix these photos, some of which are at the bottom of this page. I tried some basic ML color balancers available online, but they didn't give me the results I needed. I thought I'd have a crack at designing a better a better one, since I sit around and work on image processing problems all day at work anyway. Below is a sample result of fixing a damaged photograph of a street band taken in Puerto Natales, Chile. 
+I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which he captured with the  [Malefic 617 camera](https://www.maleficcameras.com/pagina-prodotto/malefic-m617). He forgot to get a color calibration measurement in the field, and the film roll got jammed, so the film became physically damaged in the development process. GIMP / photoshop was not enough to fix these photos, some of which are at the bottom of this page. I tried some basic ML color balancers available online, which directly regress new colors from bad ones, but they didn't give me the results I needed. I thought I'd have a crack at designing a better a better one, since I sit around and work on image processing problems all day at work anyway. Below is a sample result of fixing a damaged photograph of a street band taken in Puerto Natales, Chile. I've added a detailed results gallery here as well [Part 1: Results Gallery](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/Introduction.html), if you want a deeper dive. All of the images in this article are from free sources, or they were taken by my dad's camera.
 
 <br>
 
 ![natales](diagrams/natales.jpg)
 
 <br>
+
+# How does it work
+
+
+
+
+# What data was it trained on
+
+This was actually difficult. I went out of my way to make a custom color balance dataset specifically for these kinds of harsh problems. I made a sew of customized 1D LUT curves and 3D LUT cubes to mimic the distortions I thought were interesting. I have saved both the LUTs and the dataset for other engineers to use in the future. I would come back to this dataset if I wanted a new color balancer that does exactly what this one does, but is smaller than 100MB (I think this network was larger than it really needed to be).
+
+
+
 
 # Abstract
 
