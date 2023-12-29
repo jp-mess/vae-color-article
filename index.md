@@ -59,7 +59,7 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 ## Step 1: compress / crop a full sized image a 224x224 sized tile 
 
-The VAE for StableDiffusion actually requires images to be quite small ([224 x 224 x 3]), but this compression does not affect the fianl result due to our ability to remap the colors to the full resolution image at the end.
+The VAE for StableDiffusion actually requires images to be quite small ([224 x 224 x 3]), but this compression does not affect the final result due to our ability to remap the colors at full resolution with the MSE network (step 5-6).
 
 <p align="center">
   <img src="diagrams/crop_compress.jpg" alt="Crop and Compress">
