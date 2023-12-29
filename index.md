@@ -22,10 +22,17 @@ I created this ML algorithm during my spare time, initially to re-color old film
 ![natales](diagrams/natales.jpg)
 
 <br>
+<br>
+
+# I Want To Try It
+
+<br>
+<br>
 
 # How does it work
 
-
+<br>
+<br>
 
 
 # What data was it trained on
