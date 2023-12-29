@@ -37,31 +37,37 @@ A standard ML methodology for image enhancement is to train a CNN (convolutional
 
 Stability AI has given the ML community their pretrained Variational Autoencoders (VAEs), which are used for Stable Diffusion (AI art generation) and are available open source on Hugging Face. Autoencoders (and variational autoencoders) are essentially data compression algorithms. They take a normal sized image (the one I used accepts [224 x 224 x 3] sized images), and compresses it into a "latent" representation, which in our case will be small [28 x 28 x 8] vectors, representing the "mean" and "variance" of a Gaussian distribution which "generates" the input image, if it were a distribution. You can sample this distribution, which is where AI art gets its "random generation" capability, but this is already more advanced than what we need to know for color balance. We only care that the Variational Autoencoder also has a "Decoder" network capable of turning this (28 x 28 x 8) vector back into something resembling the original image.
 
-## Step 1: compress / crop a full sized image a 224x224 sized tile 
+### Step 1: compress / crop a full sized image a 224x224 sized tile 
 
 The VAE for StableDiffusion actually requires images to be quite small, but this compression does not affect the fianl result due to our ability to remap the colors to the full resolution image at the end.
 
+<br>
 
+### Step 2: encode as a 28x28x8 sized distribution vector
 
-## Step 2: encode as a 28x28x8 sized distribution vector
+<br>
 
+### Step 3: Balance with CNN (small receptive field)
 
-## Step 3: Balance with CNN (small receptive field)
+<br>
 
+### Step 4: Decode to recover a "balanced" 224x224 sized tile
 
-## Step 4: Decode to recover a "balanced" 224x224 sized tile
+<br>
 
-## Step 5: Train a new MLE classifier to map old colors to fixed colors
+### Step 5: Train a new MLE classifier to map old colors to fixed colors
 
-## Step 6: Apply this new MLE to the original, full resolution image
+<br>
 
-## Step N: Repeat as necessary
+### Step 6: Apply this new MLE to the original, full resolution image
 
+<br>
+
+### Step N: Repeat as necessary
 
 In the latent space, representations of the same subject matter with different colors are closely grouped, exhibiting regularity. This proximity implies that the algorithm maintains consistency and stability when repeatedly applied to the same image.
 
 ![recursive](diagrams/recursive.png)
-
 
 
 <br>
