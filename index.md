@@ -37,7 +37,7 @@ I created this ML algorithm during my spare time, initially to re-color old film
 <br>
 
 
-# What data was it trained on
+# What Data Was It Trained On
 
 This was actually difficult. I went out of my way to make a custom color balance dataset specifically for these kinds of harsh problems. I made a sew of customized 1D LUT curves and 3D LUT cubes to mimic the distortions I thought were interesting. I have saved both the LUTs and the dataset for other engineers to use in the future. I would come back to this dataset if I wanted a new color balancer that does exactly what this one does, but is smaller than 100MB (I think this network was larger than it really needed to be).
 
