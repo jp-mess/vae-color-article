@@ -35,11 +35,32 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 A standard ML methodology for image enhancement is to train a CNN (convolutional neural network) to directly turn "bad pixels" into "balanced pixels". These networks look at thousands of "bad images", and their "corrected version", and learn to "fix" images through regression. This works pretty well, but on larger images, these networks take a very, very long time to train and are prone to catastrophic forgetting. There is also no guarantee that when they color in a new image, they will preserve all the edges and lines perfectly (after all, they are responsible for creating an entire new picture from scratch). These methods are also not agnostic to the target image resolution.
 
-Stability AI has given the ML community their pretrained Variational Autoencoders (VAEs), which are used for Stable Diffusion (AI art generation) and are available open source on Hugging Face. Autoencoders (and variational autoencoders) are essentially data compression algorithms. They take a normal sized image, generally (256 x 256 x 3) and compress it into a "latent" representation, which in our case will be small (28 x 28 x 8) vectors, representing the "mean" and "variance" of a Gaussian distribution which "generates" the input image, if it were a distribution. You can sample this distribution, which is where AI art gets its "random generation" capability, but this is already more advanced than what we need to know for color balance. We only care that the Variational Autoencoder also has a "Decoder" network capable of turning this (28 x 28 x 8) vector back into something resembling the original image.
+Stability AI has given the ML community their pretrained Variational Autoencoders (VAEs), which are used for Stable Diffusion (AI art generation) and are available open source on Hugging Face. Autoencoders (and variational autoencoders) are essentially data compression algorithms. They take a normal sized image (the one I used accepts [224 x 224 x 3] sized images), and compresses it into a "latent" representation, which in our case will be small [28 x 28 x 8] vectors, representing the "mean" and "variance" of a Gaussian distribution which "generates" the input image, if it were a distribution. You can sample this distribution, which is where AI art gets its "random generation" capability, but this is already more advanced than what we need to know for color balance. We only care that the Variational Autoencoder also has a "Decoder" network capable of turning this (28 x 28 x 8) vector back into something resembling the original image.
 
-## General Process
+## Step 1: compress / crop a full sized image a 224x224 sized tile 
+
+The VAE for StableDiffusion actually requires images to be quite small, but this compression does not affect the fianl result due to our ability to remap the colors to the full resolution image at the end.
 
 
+
+## Step 2: encode as a 28x28x8 sized distribution vector
+
+
+## Step 3: Balance with CNN (small receptive field)
+
+
+## Step 4: Decode to recover a "balanced" 224x224 sized tile
+
+## Step 5: Train a new MLE classifier to map old colors to fixed colors
+
+## Step 6: Apply this new MLE to the original, full resolution image
+
+## Step N: Repeat as necessary
+
+
+In the latent space, representations of the same subject matter with different colors are closely grouped, exhibiting regularity. This proximity implies that the algorithm maintains consistency and stability when repeatedly applied to the same image.
+
+![recursive](diagrams/recursive.png)
 
 
 
@@ -119,9 +140,6 @@ Dataset generation is its own large problem for tasks like this. This section co
 
 This last section covers the actual machine learning involved, and the other parts of the denoising algorithm. Most of it is intuitive, but there seem to be some advantages of working in a latent space when it comes to "recursively applying" image filters. I've tried my best to explain why my technique works as well as it does when you apply it iteratively. This section assumes familiarity with Variational Autoencoders.
 
-<br>
-
-![recursive](diagrams/recursive.png)
 
 <br>
 <br>
