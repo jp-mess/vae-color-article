@@ -17,6 +17,32 @@ from pathlib import Path
 device = 'cpu'
 VAE_INPUT_DIM = 224
 
+def plot_latent_distribution(tensor, save_path='latent.png'):
+    """
+    Plots the 8 images (channels) in the tensor using the 'viridis' colormap.
+    The first 4 are interpreted as the mean and the next 4 as the variance.
+    Saves the figure as 'latent.png'.
+
+    Args:
+    - tensor (torch.Tensor): A tensor of shape (1, 8, 28, 28).
+    - save_path (str, optional): Path to save the figure. Defaults to 'latent.png'.
+    """
+    if tensor.shape != (1, 8, 28, 28):
+        raise ValueError("Tensor must be of shape (1, 8, 28, 28)")
+
+    # Remove the first dimension
+    images = tensor.squeeze(0)
+
+    fig, axes = plt.subplots(2, 4, figsize=(8, 4))  # 2 rows (mean, var), 4 columns
+
+    for i, ax in enumerate(axes.flatten()):
+        ax.imshow(images[i], cmap='viridis')
+        ax.axis('off')  # Hide the axes
+
+    plt.tight_layout()
+    plt.savefig(save_path, bbox_inches='tight')
+    plt.show()
+
 # Function to load an image from a URL
 def load_image(url):
     return Image.open(requests.get(url, stream=True).raw)
@@ -131,7 +157,6 @@ def recursive_color_correction(original_image, iterations, transforms, vae, late
 
         fixed_subimage = decode_latent(fixed_encoded, vae)
         distorted_subimage = decode_latent(encoded, vae)
-
 
         # Apply color mapping
         painted_image_array = color_mapping(distorted_subimage, fixed_subimage, adjusted_image)
