@@ -247,7 +247,7 @@ def main():
 
     # I trained this (network in models.py)
     latent_balancer = models.FCN()
-    balance_network = 'latent_balancer.pth'
+    balance_network = "checkpoints/latent_balancer.pth"
     latent_balancer.load_state_dict(torch.load(balance_network))
     latent_balancer.to(device)
 
