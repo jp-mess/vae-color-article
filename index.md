@@ -15,7 +15,7 @@ title: Latent Space Color Balance
 
 # About This Project
 
-I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which he captured with the  [Malefic 617 camera](https://www.maleficcameras.com/pagina-prodotto/malefic-m617). He forgot to get a color calibration measurement in the field, and the film roll got jammed, so the film became physically damaged in the development process. GIMP / photoshop was not enough to fix these photos, some of which are at the bottom of this page. I tried some basic ML color balancers available online, which directly regress new colors from bad ones, but they didn't give me the results I needed. I thought I'd have a crack at designing a better a better one, since I sit around and work on image processing problems all day anyway. Below is a sample result of fixing a damaged photograph of a street band taken in Puerto Natales, Chile. I've added a detailed results gallery here as well ([Part 1: Results Gallery](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/Introduction.html)). It also contains a deeper dive into computational photography, a field I worked in right after graduate school.
+I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which he captured with the  [Malefic 617 camera](https://www.maleficcameras.com/pagina-prodotto/malefic-m617). He forgot to get a color calibration measurement in the field, and the film roll got jammed, so the film became physically damaged in the development process. GIMP / photoshop was not enough to fix these photos, some of which are at the bottom of this page. I tried some basic ML color balancers available online, which directly regress new colors from bad ones, but they didn't give me the results I needed. I thought I'd have a crack at designing a better a better one, since I sit around and work on image processing problems all day anyway. What I came up with worked very well, even on color balance problems that are extremely difficult (with mixed lighting effects, or harsh post-processing filters), so I decided to write it up. Below is a sample result of fixing a damaged photograph of a street band taken in Puerto Natales, Chile. I've added a detailed results gallery here as well ([Part 1: Results Gallery](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/Introduction.html)). That link also contains a detailed introduction of standard white balance, and its limitations for problems like these.
 
 <br>
 
@@ -33,37 +33,39 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 # How does it work
 
-A standard ML methodology for image enhancement is to train a CNN (convolutional neural network) to directly turn "bad pixels" into "balanced pixels". These networks look at thousands of "bad images", and their "corrected version", and learn to "fix" images through regression. This works pretty well, but on larger images, these networks take a very, very long time to train and are prone to catastrophic forgetting. There is also no guarantee that when they color in a new image, they will preserve all the edges and lines perfectly (after all, they are responsible for creating an entire new picture from scratch). These methods are also not agnostic to the target image resolution.
+The algorithm works by fixing images in the "latent space" of a Variational Autoencoder (VAE) pre-trained for Stable Diffusion. In simpler terms, a pre-trained network maps the images to very small representations, and all my color fixing happens in this smaller dimensional space. An "intermediate" network I trained modifies these encodings so that, when decoded, a prettier image is output. The architecture of this intermediate network is not very important (it's just a CNN). In Stable Diffusion art generation, this "intermediate" network doesn't just modify the colors of the image, but also the composition, so you can view the algorithm on this page as an AI art algorithm that just modifies the colors. This is what happens in the "KL Divergence" part of the diagram at the top of this page. There's a second step that learns the color map in regular image coordinates, so that the color transformation can be applied to images of arbitrary resolution, because Stable Diffusion isn't good at handling high resolution images (which motivates ML projects like Imagen, which work on full resolution images and do not rely on a compression step).
+
+**What happens if I don't use a VAE**: A standard ML methodology for image enhancement is to train a CNN (convolutional neural network) to directly turn "bad pixels" into "balanced pixels". These networks look at thousands of "bad images", and their "corrected version", and learn to "fix" images through regression. This works pretty well, but on larger images, these networks take a very, very long time to train and are prone to catastrophic forgetting. There is also no guarantee that when they color in a new image, they will preserve all the edges and lines perfectly (after all, they are responsible for creating an entire new picture from scratch). These methods are also not agnostic to the target image resolution. If you do all your color fixing in the smaller dimensional space of the output of a Variational Autoencoder, you fix most of these problems. These little vectors (of fixed size [28 x 28 x 8]) can be used as training data
 
 Stability AI has given the ML community their pretrained Variational Autoencoders (VAEs), which are used for Stable Diffusion (AI art generation) and are available open source on Hugging Face. Autoencoders (and variational autoencoders) are essentially data compression algorithms. They take a normal sized image (the one I used accepts [224 x 224 x 3] sized images), and compresses it into a "latent" representation, which in our case will be small [28 x 28 x 8] vectors, representing the "mean" and "variance" of a Gaussian distribution which "generates" the input image, if it were a distribution. You can sample this distribution, which is where AI art gets its "random generation" capability, but this is already more advanced than what we need to know for color balance. We only care that the Variational Autoencoder also has a "Decoder" network capable of turning this (28 x 28 x 8) vector back into something resembling the original image.
 
-### Step 1: compress / crop a full sized image a 224x224 sized tile 
+## Step 1: compress / crop a full sized image a 224x224 sized tile 
 
 The VAE for StableDiffusion actually requires images to be quite small, but this compression does not affect the fianl result due to our ability to remap the colors to the full resolution image at the end.
 
 <br>
 
-### Step 2: encode as a 28x28x8 sized distribution vector
+## Step 2: encode as a 28x28x8 sized distribution vector
 
 <br>
 
-### Step 3: Balance with CNN (small receptive field)
+## Step 3: Balance with CNN (small receptive field)
 
 <br>
 
-### Step 4: Decode to recover a "balanced" 224x224 sized tile
+## Step 4: Decode to recover a "balanced" 224x224 sized tile
 
 <br>
 
-### Step 5: Train a new MLE classifier to map old colors to fixed colors
+## Step 5: Train a new MLE classifier to map old colors to fixed colors
 
 <br>
 
-### Step 6: Apply this new MLE to the original, full resolution image
+## Step 6: Apply this new MLE to the original, full resolution image
 
 <br>
 
-### Step N: Repeat as necessary
+## Step N: Repeat as necessary
 
 In the latent space, representations of the same subject matter with different colors are closely grouped, exhibiting regularity. This proximity implies that the algorithm maintains consistency and stability when repeatedly applied to the same image.
 
