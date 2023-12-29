@@ -61,13 +61,29 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 The VAE for StableDiffusion actually requires images to be quite small ([224 x 224 x 3]), but this compression does not affect the fianl result due to our ability to remap the colors to the full resolution image at the end.
 
+<p align="center">
+  <img src="diagrams/crop_compress.jpg" alt="Crop and Compress">
+</p>
+
 <br>
 
 ## Step 2: encode as a 28x28x8 sized distribution vector
 
+The low resolution image is encoded with the pre-trained VAE's encoder
+
+<p align="center">
+  <img src="diagrams/initial_encoding.jpg" alt="Initial Encoding">
+</p>
+
 <br>
 
-## Step 3: Balance with CNN (small receptive field)
+## Step 3: balance the encoding
+
+The primary balancing network, trained with KL divergence, adjusts the encoding to be one that, in theory, should decode to a fixed image.
+
+<p align="center">
+  <img src="diagrams/latent_color_balancer.jpg" alt="Latent Color Balancer">
+</p>
 
 <br>
 
