@@ -1,6 +1,6 @@
-# Tryint It Out Yourself
+# Code
 
-This is the developer guide for this project page: [Latent Space Color Correction](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/)
+This is the developer guide for this project page: [Latent Space Color Balance](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/)
 
 
 ## Installation
