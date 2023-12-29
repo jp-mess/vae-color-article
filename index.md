@@ -13,7 +13,9 @@ title: Colored Lighting Removal with VAEs
 <br>
 <br>
 
+I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which he captured with the  [Malefic 617 camera](https://www.maleficcameras.com/pagina-prodotto/malefic-m617). He forgot to get a color calibration measurement in the field, and the filmroll got jammed, so they became physically damaged in the development process. GIMP / photoshop was not enough to fix these photos, some of which are at the bottom of this page. I tried some basic ML color balancers available online, but they didn't give me the results I needed. I thought I'd have a crack at designing a better a better one.
 
+![natales](diagrams/natales.jpg)
 
 
 # Abstract
@@ -27,14 +29,6 @@ However, powerful pre-trained varational autoencoders let you bypass these issue
 1. Protect edges and textures through simple color remapping.
 2. Ensure uniform recoloring across the image, avoiding irregularities in similar areas.
 3. Enhance efficiency and training speed due to the small, fixed-size latent representations, independent of the original image's resolution.
-
-<br>
-
-# About the author
-
-I created this ML algorithm during my spare time, initially to re-color old film photographs my dad took in Patagonia, which came out poorly because he decided to use the most old fashioned (and pretentious) film camera he could find. GIMP / photoshop was not enough to fix these photos, some of which are at the bottom of this page. 
-
-The first section of this article investigates the initial problem, and how I found it different from traditional white balance. The second and third sections are about dataset generation and model training. The variational autoencoders aside, I think anyone with a background in python programming should be able to follow this pretty easily.
 
 <br>
 <br>
@@ -98,10 +92,6 @@ This last section covers the actual machine learning involved, and the other par
 <br>
 <br>
 
-![natales](diagrams/natales.jpg)
-
-<br>
-<br>
 
 ![coffee](diagrams/coffee.png)
 
