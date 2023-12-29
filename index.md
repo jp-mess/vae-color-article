@@ -69,7 +69,7 @@ The VAE for StableDiffusion actually requires images to be quite small ([224 x 2
 
 ## Step 2: encode as a 28x28x8 sized distribution vector
 
-The low resolution image is encoded with the pre-trained VAE's encoder
+The low resolution image is encoded with the pre-trained VAE's encoder. The "top four" [28 x 28] images are the mean of the latent representation, while the bottom four are the variance. In Stable Diffusion, this latent distribution is sampled to get randomized versions of the original image, but we aren't going to use the encoding like that. We are just going to plug it into another network as a [28 x 28 x 8] sized input vector.
 
 <p align="center">
   <img src="diagrams/initial_encoding.jpg" alt="Initial Encoding">
@@ -79,7 +79,7 @@ The low resolution image is encoded with the pre-trained VAE's encoder
 
 ## Step 3: balance the encoding
 
-The primary balancing network, trained with KL divergence, adjusts the encoding to be one that, in theory, should decode to a fixed image.
+The primary balancing network, trained with KL divergence, adjusts the encoding to be one that, in theory, should decode to a fixed image. The differences between the two encodings are interesting to ponder (why does the fixed encoding have higher variance values, and what do the channels mean in RGB space?). Ultimately, this encoding is uninterpretable, and we just have to treat it as data.
 
 <p align="center">
   <img src="diagrams/latent_color_balancer.jpg" alt="Latent Color Balancer">
