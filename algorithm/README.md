@@ -1,6 +1,7 @@
-# Latent Space Color Correction
+# Tryint It Out Yourself
 
-This project implements an image color correction algorithm using a neural network approach. It learns a color mapping from a distorted image to a fixed image and iteratively applies this correction to enhance image quality.
+This is the developer guide for this project page: [Latent Space Color Correction](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/)
+
 
 ## Installation
 
