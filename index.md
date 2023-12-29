@@ -1,5 +1,5 @@
 ---
-title: Latent Space Color Balancing
+title: Latent Space Color Correction
 ---
 
 ### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
