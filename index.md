@@ -117,7 +117,7 @@ We decode both the distorted vector, and the fixed vector. Why not just the fixe
 
 <br>
 
-## Step 5: train a new MLE classifier to map bad colors to good colors
+## Step 5: train a new MSE classifier to map bad colors to good colors
 
 This network is trained online, meaning that every time the algorithm runs, it needs to train a new color mapping network. However, a single layer MLP can be trained in a few seconds.
 
