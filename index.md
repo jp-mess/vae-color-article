@@ -52,11 +52,13 @@ There are really three networks involved here. [A pre-trained VAE from Stability
 
 1. **It was slower.** By using compressed latent vectors, you can significantly speed up your training process due to the smaller size of the data. This results in the ability to train a high-performing network that can generalize effectively in under 20 minutes, which is not achievable when using sized (224x224) images. In my implementation without a VAE, each epoch took 220 seconds, while with VAE it only took 30 seconds. However, it’s not a direct comparison since I had to reduce the number of parameters in the “regular CNN” implementation significantly to make it run without being killed by the OS. This isn't exactly a point in the favor of the "direct" approach. I used the NVIDIA GeForce RTX 3070 for training.
 2. **It required training regularization.** In order to not make this direct network not overfit, I needed to add both weight decay and dropout. Training not only took longer, but tuning it was more of a headache. The VAE implementation did not need regularization, almost certainly because the latent space it operates in was forced to be regular.
-3. **It was not able to recursively apply it.** The VAE balancer can be applied to the same image multiple times, for iterative benefit. The direct Unet did not exhibit this property. Interestingly, it flopped between similar images. I believe this is also because the latent space is highly regular, so iterative improvements could be found easily, whereas this is not the case in the original image space. Observe, on the top is some recursive applications using a denoising system with a VAE, and on the bottom is the same thing, but using a system that denoises images with a Unet directly:
+3. **It was not able to recursively apply it.** The VAE balancer can be applied to the same image multiple times, for iterative benefit. The direct Unet did not exhibit this property. Interestingly, it flopped between similar images. I believe this is also because the latent space is highly regular, so iterative improvements could be found easily, whereas this is not the case in the original image space. Observe, on the top is some recursive applications using a denoising system with a VAE, and on the bottom is the same thing, but using a system that denoises images with a Unet directly.
 
 <p align="center">
   <img src="diagrams/recursive_comparison.png" alt="Recursive Comparison">
 </p>
+
+<br>
 
 
 **I'd like to learn more about VAEs**:  I did not provide a background section on Variational Autoencoders as explaining it from scratch would be difficult.One excellent article on this topic was written by Joseph Rocca and can be found on TowardsDataScience. It is worth mentioning that he was a full-time employee at the site when he wrote it. [The article is linked here](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
