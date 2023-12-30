@@ -86,7 +86,7 @@ The VAE for StableDiffusion actually requires images to be quite small ([224 x 2
 
 <br>
 
-## Step 2: encode as a 28x28x8 sized distribution vector
+## Step 2: encode this image as a 28x28x8 sized distribution vector
 
 The low-resolution image is encoded with the pre-trained VAE's encoder. The "top four" [28 x 28] images are the mean of the latent representation, while the bottom four are the variance. In Stable Diffusion, this latent distribution is sampled to get randomized versions of the original image, but we aren't going to use the encoding like that. We are just going to plug it into another network as a [28 x 28 x 8] sized input vector.
 
@@ -106,7 +106,7 @@ The primary balancing network, trained with KL divergence, adjusts the encoding 
 
 <br>
 
-## Step 4: Decode to recover a distorted/fixed pair
+## Step 4: decode to recover a distorted/fixed pair
 
 We decode both the distorted vector, and the fixed vector. Why not just the fixed? Notice how the face of the girl in these images looks wonky and weird. That is because Stable Diffusion's VAE does not decode details perfectly. We notice faces are often "off" in AI art because as humans, we are sensitive to facial distortions. Ultimately, we only care about the "color map" that can be learned between these two images. We want to take the original distorted image, and line it up with the "fixed" one that we made with the balancer network, pixel for pixel, so we can figure out how to remap colors. We can't quite line up the cropped/compressed image from Step 1 with the "fixed" decoded output, because the image from step 1 does not have an "ugly face" that can be matched pixel-for-pixel with the fixed one. How do we get an "ugly face" version of the original image? Run the original encoding through the decoding as well.
 
@@ -127,7 +127,7 @@ This network is trained online, meaning that every time the algorithm runs, it n
 
 <br>
 
-## Step 6: Apply this new MLE to the original, full resolution image
+## Step 6: apply this new MLE to the original, full resolution image
 
 <p align="center">
   <img src="diagrams/one_iter.png" alt="One Iteration">
@@ -136,7 +136,7 @@ This network is trained online, meaning that every time the algorithm runs, it n
 
 <br>
 
-## Step N: Repeat as necessary
+## Step N: repeat as necessary
 
 In the latent space, representations of the same subject matter with different colors are closely grouped, exhibiting regularity. This proximity implies that the algorithm maintains consistency and stability when repeatedly applied to the same image.
 
