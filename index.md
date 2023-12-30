@@ -128,7 +128,7 @@ This network is trained online, meaning that every time the algorithm runs, it n
 
 <br>
 
-## Step 6: apply this new MLE to the original, full resolution image
+## Step 6: apply this map to the original, full resolution image
 
 <p align="center">
   <img src="diagrams/one_iter.png" alt="One Iteration">
