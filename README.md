@@ -4,11 +4,7 @@
   <img src="diagrams/model1.png" alt="Model Diagram">
 </p>
 
-Welcome to the Latent Space Color Fixes repository.
-
-## Testing the Algorithm
-
-If you're interested in testing out the algorithm, please navigate to the [`algorithm/`](algorithm/) folder where you'll find all the necessary files and instructions to get started.
+This is the github pages writeup for the algorithm [described here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/) and [implemented here](https://github.com/messy-bytes/VAE-Color-Balance/tree/main).
 
 ## License
 
