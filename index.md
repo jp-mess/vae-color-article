@@ -54,6 +54,8 @@ There are really three networks involved here. [A pre-trained VAE from Stability
 2. **It required training regularization.** In order to not make this direct network not overfit, I needed to add both weight decay and dropout. Training not only took longer, but tuning it was more of a headache. The VAE implementation did not need regularization, almost certainly because the latent space it operates in was forced to be regular.
 3. **It couldn't be recursively applied.** The VAE balancer can be applied to the same image multiple times, for iterative benefit. The direct Unet did not exhibit this property. Interestingly, it flopped between similar images. I believe this is also because the latent space is highly regular, so iterative improvements could be found easily, whereas this is not the case in the original image space. Observe, on the top is some recursive applications using a denoising system with a VAE, and on the bottom is the same thing, but using a system that denoises images with a Unet directly.
 
+<br>
+
 <p align="center">
   <img src="diagrams/recursive_comparison.png" alt="Recursive Comparison">
 </p>
