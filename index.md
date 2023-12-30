@@ -167,7 +167,6 @@ This was actually difficult. I went out of my way to make a custom color balance
 # More Patagonia Photograph Fixes
 
 <br>
-<br>
 
 ![patagonia1](diagrams/patagonia1.png)
 
