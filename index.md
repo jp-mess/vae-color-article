@@ -164,7 +164,7 @@ This was actually difficult. I went out of my way to make a custom color balance
 <br>
 
 
-# More Patagonia Photograph Fixes
+# Patagonia Gallery
 
 <br>
 
