@@ -110,6 +110,11 @@ This network is trained online, meaning that every time the algorithm runs, it n
 
 ## Step 6: Apply this new MLE to the original, full resolution image
 
+<p align="center">
+  <img src="diagrams/one_iter.png" alt="One Iteration">
+</p>
+
+
 <br>
 
 ## Step N: Repeat as necessary
@@ -117,6 +122,10 @@ This network is trained online, meaning that every time the algorithm runs, it n
 In the latent space, representations of the same subject matter with different colors are closely grouped, exhibiting regularity. This proximity implies that the algorithm maintains consistency and stability when repeatedly applied to the same image.
 
 ![recursive](diagrams/recursive.png)
+
+<p align="center">
+  <img src="diagrams/five_iter.png" alt="Five Iterations">
+</p>
 
 
 <br>
