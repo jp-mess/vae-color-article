@@ -154,7 +154,7 @@ In the latent space, representations of the same subject matter with different c
 
 # What Data Was It Trained On
 
-This was actually difficult. I went out of my way to make a custom color balance dataset specifically for these kinds of harsh problems. I made a sew of customized 1D LUT curves and 3D LUT cubes to mimic the distortions I thought were interesting. I have saved both the LUTs and the dataset for other engineers to use in the future. I would come back to this dataset if I wanted a new color balancer that does exactly what this one does, but is smaller than 100MB (I think this network was larger than it really needed to be). [A full guide on generating these datasets is here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html).
+This was actually difficult. I went out of my way to make a custom color balance dataset specifically for these kinds of harsh problems. I made a slew of customized 1D LUT curves and 3D LUT cubes to mimic the distortions I thought were interesting. I have saved both the LUTs and the dataset for other engineers to use in the future. I would come back to this dataset if I wanted a new color balancer that does exactly what this one does, but is smaller than 100MB (I think this network was larger than it really needed to be). [A full guide on generating these datasets is here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html).
 
 <br>
 
