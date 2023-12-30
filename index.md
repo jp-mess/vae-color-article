@@ -20,6 +20,7 @@ I created this ML algorithm during my spare time, initially to re-color old film
 **More background info:** [I've added a detailed results gallery here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/04/29/Introduction.html), which includes a lengthy introduction to basic computational photography, and how white balance assumptions are not enough to fix images with mixed or intense lighting distortions, as well as how to improve the colors of images with human faces. This link *does not* have a "how it works" section, which is [on this page](#how-does-it-work)
 
 <br>
+<br>
 
 ![natales](diagrams/natales.jpg)
 
@@ -28,7 +29,7 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 # I Want To Try It
 
-[Here's a git repository](https://github.com/messy-bytes/VAE-Color-Balance/tree/main) with directions you can follow for trying this algorithm on your own images. It's a pretty straightforward, but you need a linux terminal to use it, and the repository is fairly large (about 100MB) due to the size of the latent color balancing network.
+[Here's a git repository](https://github.com/messy-bytes/VAE-Color-Balance/tree/main) with directions you can follow for trying this algorithm on your own images. It's pretty straightforward, but you need a linux terminal to use it, and the repository is fairly large (about 100MB) due to the size of the latent color balancing network.
 
 <br>
 <br>
