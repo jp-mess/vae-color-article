@@ -28,7 +28,7 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 # I Want To Try It
 
-[Here's a git repository](https://github.com/messy-bytes/Advanced-ML-Color-Fixes/tree/main/algorithm) with directions you can follow for trying this algorithm on your own images. It's a pretty straightforward, so you can mess around with the internals pretty easily as well. The network weights are large (but not large enough to motivate me to add them to a git LFS), so you have to recombine the .pth file with a bash script. There are instructions in there for that.
+[Here's a git repository](https://github.com/messy-bytes/VAE-Color-Balance/tree/main) with directions you can follow for trying this algorithm on your own images. It's a pretty straightforward, but you need a linux terminal to use it, and the repository is fairly large (about 100MB) due to the size of the latent color balancing network.
 
 <br>
 <br>
