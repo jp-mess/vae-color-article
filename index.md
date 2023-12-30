@@ -38,6 +38,8 @@ I created this ML algorithm during my spare time, initially to re-color old film
 
 ### [Too much text, I want an illustrated guide](#step-by-step-illustration)
 
+<br>
+
 There are really three networks involved here. [A pre-trained VAE from StabilityAI](https://huggingface.co/docs/diffusers/api/models/autoencoderkl), a "latent color balancer", which was trained on KL Divergence, and a "color mapper", which is trained on MSE in pixel space. You can see how these networks work together in the diagram at the top of this page. The VAE comes pre-trained, the [KL Divergence network I trained on a custom dataset made image enhancement 1D/3D LUTs](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html), and the color mapper is trained online every time the network is used.
 
 **Network #1, The Latent Balancer:** Overall, this algorithm works by fixing images in the "latent space" of a pre-trained Variational Autoencoder (VAE). In simpler terms, a pre-trained network maps the original image to very small dimensional representation (28 x 28 x 8), and all my color fixing happens in this smaller dimensional space. An "intermediate" network (that I trained) modifies these encodings into new encodings that can be decoded into prettier, "fixed" images. The architecture of this intermediate network is not very important (I made a Unet, which is often used for these applications<sup>1</sup>). It needs to be noted that the decoded image from this process will be small, and distorted. A second network is needed to map the colors to the high-resolution original image, which is trained online.
