@@ -4,6 +4,8 @@ title: Latent Space Color Balance
 
 ### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
 
+### [show me the code](https://github.com/messy-bytes/VAE-Color-Balance)
+
 <br>
 <br>  
 
@@ -154,7 +156,7 @@ In the latent space, representations of the same subject matter with different c
 
 # What Data Was It Trained On
 
-This was actually difficult. I went out of my way to make a custom color balance dataset specifically for these kinds of harsh problems. I made a slew of customized 1D LUT curves and 3D LUT cubes to mimic the distortions I thought were interesting. I have saved both the LUTs and the dataset for other engineers to use in the future. I would come back to this dataset if I wanted a new color balancer that does exactly what this one does, but is smaller than 100MB (I think this network was larger than it really needed to be). [A full guide on generating these datasets is here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html).
+It was actually difficult to make a training data set that could address the issues in my dad's damaged photos. I made some Look Up Table (LUTs) to mimic a lot of complex distortions and gamma curves, and trained the latent balancer to remove them in the encoded space (by using the LUTs to distort the images, and then treat the original image as an output). [A full guide on generating these datasets is here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html). I also took some "image enhancement" LUTs (from Kodak, Nikon and Colorist Factory), and used them to make training examples where the network could take normal images, and enhance them. This helped address the network's tendancy to output "dead-body" skin tones when the color neutralization was too strong. I think these extra examples overall made the output images look more visually appealing.
 
 <br>
 
