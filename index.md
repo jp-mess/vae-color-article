@@ -38,6 +38,7 @@ I created this ML algorithm in my spare time, initially to re-color old film pho
 # How does it work
 
 ### [Too much text, I want an illustrated guide](#step-by-step-illustration)
+<br>
 
 There are really three networks involved here. [A pre-trained VAE from StabilityAI](https://huggingface.co/docs/diffusers/api/models/autoencoderkl), a "latent color balancer", which was trained on KL Divergence, and a "color mapper", which is trained on MSE in pixel space. You can see how these networks work together in the diagram at the top of this page. The VAE comes pre-trained, the [KL Divergence network I trained on a custom dataset made image enhancement LUTs](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html), and the color mapper is trained online every time the network is used.
 
