@@ -4,7 +4,7 @@ title: Latent Space Color Balance
 
 ### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
 
-### [show me the code](https://github.com/messy-bytes/VAE-Color-Balance)
+### [show me the code!](https://github.com/messy-bytes/VAE-Color-Balance)
 
 <br>
 <br>  
