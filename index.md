@@ -37,11 +37,11 @@ I created this ML algorithm in my spare time, initially to re-color old film pho
 
 # How does it work
 
-There are really three networks involved here. [A pre-trained VAE from StabilityAI](https://huggingface.co/docs/diffusers/api/models/autoencoderkl), a "latent color balancer", which was trained on KL Divergence, and a "color mapper", which is trained on MSE in pixel space. You can see how these networks work together in the diagram at the top of this page. The VAE comes pre-trained, the [KL Divergence network I trained on a custom dataset made image enhancement LUTs](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html), and the color mapper is trained online every time the network is used.
+The diagram at the top of the page shows two networks (the KL divergence trained network, and the MSE trained network). However, there are actually four networks here.
 
-**Network #1, The Latent Balancer:** Overall, this algorithm works by fixing images in the "latent space" of a pre-trained Variational Autoencoder (VAE). In simpler terms, a pre-trained network maps the original image to very small dimensional representation (28 x 28 x 8), and all my color fixing happens in this smaller dimensional space. An "intermediate" network (that I trained) modifies these encodings into new encodings that can be decoded into prettier, "fixed" images. The architecture of this intermediate network is not very important (I made a Unet, which is often used for these applications). It needs to be noted that the decoded image from this process will be small, and distorted. A second network is needed to map the colors to the high-resolution original image, which is trained online.
-
-**Network #2, The Color Mapper:** The second network is just a single layer MLP, trained with MSE. It only exists to allow the latent color balancer to recolor high-resolution images. It learns a color mapping (old color -> new color) from the above input/output pair. Since this simpler network operates on single pixels, it can be applied to images of arbitrary resolution. Apply this network to the original high-resolution image to get the final output.
+1. **The Variational Autoencoder (VAE):** Pre-trained by StabilityAI, [I just "stole" it from HuggingFace](https://huggingface.co/docs/diffusers/api/models/autoencoderkl). This network takes our original image into "the latent space", which really means it compresses it to a very small vector which magically captures the "essense" of the original image, such that it could be reasonably decoded with the VAE's decoder network. These small vectors can be interpreted as a mean/variance pair, but we aren't going to get that brainy here. One excellent article on this topic was written by Joseph Rocca and can be found on TowardsDataScience. It is worth mentioning that he was a full-time employee at the site when he wrote it. [The article is linked here](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
+2. **The Latent Balancer:** This network does most of it the work. It takes "encoded bad images" and turns them into "encoded good images". The architecture of this intermediate network is not very important (I made a Unet with some attention layers, which is often used for these applications). In theory, we could encode the image with the VAE, fix it with the latent balancer, decode it back into an image, and call it a day. However, the decoder's output is a small, ugly version of the original. It will have weird faces and blurry details. This is why StableDiffusion usually comes with an upsampler network. A second network is needed to map the colors to the high-resolution original image, which is trained online.
+3. **The Color Mapper (upsampler):** We don't need an upsampler, because we only care about how the colors have changed. The second network is just a single layer MLP, trained with MSE, to map old colors to better ones from the above input/output pair. Since this simpler network operates on single pixels, it can be applied to images of arbitrary resolution. Apply this network to the original high-resolution image to get the final output.
 
 
 <br>
@@ -138,11 +138,6 @@ In the latent space, representations of the same subject matter with different c
 <p align="center">
   <img src="diagrams/recursive_comparison.png" alt="Recursive Comparison">
 </p>
-
-<br>
-
-
-**I'd like to learn more about VAEs**:  I did not provide a background section on Variational Autoencoders as explaining it from scratch would be difficult.One excellent article on this topic was written by Joseph Rocca and can be found on TowardsDataScience. It is worth mentioning that he was a full-time employee at the site when he wrote it. [The article is linked here](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
 
 <br>
 <br>
