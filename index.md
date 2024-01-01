@@ -39,7 +39,7 @@ I created this ML algorithm in my spare time, initially to re-color old film pho
 
 There are really three networks involved here. [A pre-trained VAE from StabilityAI](https://huggingface.co/docs/diffusers/api/models/autoencoderkl), a "latent color balancer", which was trained on KL Divergence, and a "color mapper", which is trained on MSE in pixel space. You can see how these networks work together in the diagram at the top of this page. The VAE comes pre-trained, the [KL Divergence network I trained on a custom dataset made image enhancement LUTs](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html), and the color mapper is trained online every time the network is used.
 
-**Network #1, The Latent Balancer:** Overall, this algorithm works by fixing images in the "latent space" of a pre-trained Variational Autoencoder (VAE). In simpler terms, a pre-trained network maps the original image to very small dimensional representation (28 x 28 x 8), and all my color fixing happens in this smaller dimensional space. An "intermediate" network (that I trained) modifies these encodings into new encodings that can be decoded into prettier, "fixed" images. The architecture of this intermediate network is not very important (I made a Unet, which is often used for these applications<sup>1</sup>). It needs to be noted that the decoded image from this process will be small, and distorted. A second network is needed to map the colors to the high-resolution original image, which is trained online.
+**Network #1, The Latent Balancer:** Overall, this algorithm works by fixing images in the "latent space" of a pre-trained Variational Autoencoder (VAE). In simpler terms, a pre-trained network maps the original image to very small dimensional representation (28 x 28 x 8), and all my color fixing happens in this smaller dimensional space. An "intermediate" network (that I trained) modifies these encodings into new encodings that can be decoded into prettier, "fixed" images. The architecture of this intermediate network is not very important (I made a Unet, which is often used for these applications). It needs to be noted that the decoded image from this process will be small, and distorted. A second network is needed to map the colors to the high-resolution original image, which is trained online.
 
 **Network #2, The Color Mapper:** The second network is just a single layer MLP, trained with MSE. It only exists to allow the latent color balancer to recolor high-resolution images. It learns a color mapping (old color -> new color) from the above input/output pair. Since this simpler network operates on single pixels, it can be applied to images of arbitrary resolution. Apply this network to the original high-resolution image to get the final output.
 
@@ -143,10 +143,6 @@ In the latent space, representations of the same subject matter with different c
 
 
 **I'd like to learn more about VAEs**:  I did not provide a background section on Variational Autoencoders as explaining it from scratch would be difficult.One excellent article on this topic was written by Joseph Rocca and can be found on TowardsDataScience. It is worth mentioning that he was a full-time employee at the site when he wrote it. [The article is linked here](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
-
-<br>
-
-<sup>1</sup> *In Stable Diffusion art generation, this "intermediate" network doesn't just modify the colors of the image, but also the composition. You can view the algorithm on this page as an AI art algorithm that just modifies the colors.*
 
 <br>
 <br>
