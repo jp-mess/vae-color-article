@@ -46,34 +46,6 @@ There are really three networks involved here. [A pre-trained VAE from Stability
 
 **Network #2, The Color Mapper:** The second network is just a single layer MLP, trained with MSE. It only exists to allow the latent color balancer to recolor high-resolution images. It learns a color mapping (old color -> new color) from the above input/output pair. Since this simpler network operates on single pixels, it can be applied to images of arbitrary resolution. Apply this network to the original high-resolution image to get the final output.
 
-**Putting it all together:** This algorithm uses a VAE (which has both an encoder and decoder network), a latent color balancing network, and another network for representing a color map. A high-resolution "distorted image" image (the one you want to fix) is cropped and compressed into a low-resolution image (of dimension [224 x 224 x 3]) that StabilityAI's VAE can encode. We'll call this artifact the "distorted subimage", because it is cropped and will have terrible resolution. The VAE encodes this low-resolution image as a [28 x 28 x 8] sized vector. We'll call this the "distorted encoding".
-
-1. The first network (which is large, and was trained offline) accepts as input this "distorted encoding", and outputs a "fixed encoding" (also of dimension [28 x 28 x 8]). The loss function for this network is KL divergence, because the encodings are technically the mean and variance of a gaussian distribution, although this isn't important for understanding the algorithm. This "fixed encoding" is decoded, using the VAE's decoder, to get back a prettier, albeit low-resolution, new image of size [224 x 224 x 3]. We'll call this preliminary output the "fixed subimage".
-2. A second network is trained (every time the algorithm runs) to map the colors in the "distorted subimage" to the "fixed subimage", using MSE loss. Since this network maps colors (3 vectors) to new colors (3 vectors) it can be applied to images of arbitrary resolution. Apply it to the original, high-resolution image to get a new high-resolution image with "fixed" colors.
-
-**How does the VAE help us?** A standard ML methodology for image enhancement is to train a CNN (convolutional neural network) to directly turn "bad pixels" into "balanced pixels". These networks look at thousands of "bad images", and their "corrected version", and learn to "fix" images through regression. This works pretty well, but on larger images, these networks take a very, very long time to train and are prone to catastrophic forgetting. These methods are also not agnostic to the target image resolution. If you do all your color fixing in the smaller dimensional space of the output of a Variational Autoencoder, you fix most of these problems. The "encoded" output of a VAE is small (the one I used has latent dimension of fixed size [28 x 28 x 8]), which speeds up training tremendously. The latent space is also enforced to be "regular", meaning that images with similar content are closer grouped together in this space, than they are in the original iamge space. I did not find that I needed any regularization strategies (like dropout or weight decay) when training a color balancer in the encoded space, but I did find that I needed them when training networks on the images directly.
-
-**Prove it.** I dislike it when people add complexity or "novel techniques" to algorithms that don't need them. So, I will do my best to convince you that I have not done that by introducing a VAE into an algorithm that does not need it. What if I just trained a Unet to balance the images directly, without this convoluted 3 network system? For comparison's sake, trained a "direct Unet" on the same dataset, which simply rebalances the images in their original format. Here were my observations:
-
-1. **It did work.** When you skip the VAE stuff, and just run a Unet to recolor images, you get similar results on certain photos. 
-2. **It was slower.** By using compressed latent vectors, you can significantly speed up your training process due to the smaller size of the data. This results in the ability to train a high-performing network that can generalize effectively in under 20 minutes, which is not achievable when using sized (224x224) images. In my implementation without a VAE, each epoch took 220 seconds, while with VAE it only took 30 seconds. However, it’s not a direct comparison since I had to reduce the number of parameters in the “regular CNN” implementation significantly to make it run without being killed by the OS. This isn't exactly a point in the favor of the "direct" approach. I used the NVIDIA GeForce RTX 3070 for training.
-3. **It required training regularization.** In order to not make this direct network not overfit, I needed to add both weight decay and dropout. Training not only took longer, but tuning it was more of a headache. The VAE implementation did not need regularization, almost certainly because the latent space it operates in was forced to be regular.
-4. **It couldn't be recursively applied.** Some photos, like the image of the girl below, require multiple applications to "dredge out". The VAE balancer can be applied to the same image multiple times, for iterative benefit. The direct Unet did not exhibit this property. Interestingly, it flopped between similar images. I believe this is also because the latent space is highly regular, so iterative improvements could be found easily, whereas this is not the case in the original image space. Observe, on the top is some recursive applications using a denoising system with a VAE, and on the bottom is the same thing, but using a system that denoises images with a Unet directly.
-
-<br>
-
-<p align="center">
-  <img src="diagrams/recursive_comparison.png" alt="Recursive Comparison">
-</p>
-
-<br>
-
-
-**I'd like to learn more about VAEs**:  I did not provide a background section on Variational Autoencoders as explaining it from scratch would be difficult.One excellent article on this topic was written by Joseph Rocca and can be found on TowardsDataScience. It is worth mentioning that he was a full-time employee at the site when he wrote it. [The article is linked here](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
-
-<br>
-
-<sup>1</sup> *In Stable Diffusion art generation, this "intermediate" network doesn't just modify the colors of the image, but also the composition. You can view the algorithm on this page as an AI art algorithm that just modifies the colors.*
 
 <br>
 <br>
@@ -150,6 +122,34 @@ In the latent space, representations of the same subject matter with different c
   <img src="diagrams/five_iter.png" alt="Five Iterations">
 </p>
 
+<br>
+<br>
+
+# Analysis
+
+**How does the VAE help us?** A standard ML methodology for image enhancement is to train a CNN (convolutional neural network) to directly turn "bad pixels" into "balanced pixels". These networks look at thousands of "bad images", and their "corrected version", and learn to "fix" images through regression. This works pretty well, but on larger images, these networks take a very, very long time to train and are prone to catastrophic forgetting. These methods are also not agnostic to the target image resolution. If you do all your color fixing in the smaller dimensional space of the output of a Variational Autoencoder, you fix most of these problems. The "encoded" output of a VAE is small (the one I used has latent dimension of fixed size [28 x 28 x 8]), which speeds up training tremendously. The latent space is also enforced to be "regular", meaning that images with similar content are closer grouped together in this space, than they are in the original iamge space. I did not find that I needed any regularization strategies (like dropout or weight decay) when training a color balancer in the encoded space, but I did find that I needed them when training networks on the images directly.
+
+**Prove it.** I dislike it when people add complexity or "novel techniques" to algorithms that don't need them. So, I will do my best to convince you that I have not done that by introducing a VAE into an algorithm that does not need it. What if I just trained a Unet to balance the images directly, without this convoluted 3 network system? For comparison's sake, trained a "direct Unet" on the same dataset, which simply rebalances the images in their original format. Here were my observations:
+
+1. **It did work.** As in, it didn't diverge. When you skip the VAE stuff, and just run a Unet to recolor images, you get similar results on "easy" photos. 
+2. **It was slower.** By using compressed latent vectors, you can significantly speed up your training process due to the smaller size of the data. This results in the ability to train a high-performing network that can generalize effectively in under 20 minutes, which is not achievable when using sized (224x224) images. In my implementation without a VAE, each epoch took 220 seconds, while with VAE it only took 30 seconds. However, it’s not a direct comparison since I had to reduce the number of parameters in the “regular CNN” implementation significantly to make it run without being killed by the OS. This isn't exactly a point in the favor of the "direct" approach. I used the NVIDIA GeForce RTX 3070 for training.
+3. **It required training regularization.** In order to not make this direct network not overfit, I needed to add both weight decay and dropout. Training not only took longer, but tuning it was more of a headache. The VAE implementation did not need regularization, almost certainly because the latent space it operates in was forced to be regular.
+4. **It couldn't be recursively applied.** Some photos, like the image of the girl below, require multiple applications to "dredge out". The VAE balancer can be applied to the same image multiple times, for iterative benefit. The direct Unet did not exhibit this property. Interestingly, it flopped between similar images. I believe this is also because the latent space is highly regular, so iterative improvements could be found easily, whereas this is not the case in the original image space. Observe, on the top is some recursive applications using a denoising system with a VAE, and on the bottom is the same thing, but using a system that denoises images with a Unet directly.
+
+<br>
+
+<p align="center">
+  <img src="diagrams/recursive_comparison.png" alt="Recursive Comparison">
+</p>
+
+<br>
+
+
+**I'd like to learn more about VAEs**:  I did not provide a background section on Variational Autoencoders as explaining it from scratch would be difficult.One excellent article on this topic was written by Joseph Rocca and can be found on TowardsDataScience. It is worth mentioning that he was a full-time employee at the site when he wrote it. [The article is linked here](https://towardsdatascience.com/understanding-variational-autoencoders-vaes-f70510919f73)
+
+<br>
+
+<sup>1</sup> *In Stable Diffusion art generation, this "intermediate" network doesn't just modify the colors of the image, but also the composition. You can view the algorithm on this page as an AI art algorithm that just modifies the colors.*
 
 <br>
 <br>
