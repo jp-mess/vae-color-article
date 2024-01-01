@@ -140,7 +140,7 @@ In the latent space, representations of the same subject matter with different c
 <br>
 
 
-# How Did You Train It
+# What Dataset Did You Use?
 
 It was actually difficult to make a training data set that could address the issues in my dad's damaged photos. I made some Look Up Table (LUTs) to mimic a lot of complex distortions and gamma curves, and trained the latent balancer to remove them in the encoded space (by using the LUTs to distort the images, and then treat the original image as an output). [A full guide on generating these datasets is here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/2023/05/03/Dataset-Curation.html). I also took some "image enhancement" LUTs (from Kodak, Nikon and Colorist Factory), and used them to make training examples where the network could take normal images, and enhance them. This helped address the network's tendancy to output "dead-body" skin tones when the color neutralization was too strong. I think these extra examples overall made the output images look more visually appealing. Recall that of the 3 networks used (the VAE, the latent balancer, and the color mapper), only the latent balancer required offline training to recolor images.
 
