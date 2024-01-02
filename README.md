@@ -4,7 +4,7 @@
   <img src="diagrams/model1.png" alt="Model Diagram">
 </p>
 
-This is the github pages writeup for the algorithm [described here](https://messy-bytes.github.io/Advanced-ML-Color-Fixes/) and [implemented here](https://github.com/messy-bytes/VAE-Color-Balance/tree/main).
+This is the github pages writeup for the algorithm [described here](https://jp-mess.github.io/Advanced-ML-Color-Fixes/) and [implemented here](https://github.com/jp-mess/VAE-Color-Balance/tree/main).
 
 ## License
 
