@@ -4,7 +4,7 @@
   <img src="diagrams/model1.png" alt="Model Diagram">
 </p>
 
-This is the github pages writeup for the algorithm [described here](https://github.com/jp-mess/vae-color-article) and [implemented here](https://github.com/jp-mess/VAE-Color-Balance/tree/main).
+This is the github pages writeup for the algorithm [described here](https://jp-mess.github.io/vae-color-article/) and [implemented here](https://github.com/jp-mess/VAE-Color-Balance/tree/main).
 
 ## License
 
