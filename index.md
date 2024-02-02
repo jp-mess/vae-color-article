@@ -3,8 +3,8 @@ title: Latent Space Color Balance
 ---
 
 ### [Author: John (Jack) Messerly](https://www.linkedin.com/in/jack-messerly-567b9b96/)
-### [more of my projects](https://jp-mess.github.io/blog-main/)
-### [show me the code!](https://github.com/jp-mess/VAE-Color-Balance)
+### [other sample work](https://jp-mess.github.io/blog-main/)
+### [code](https://github.com/jp-mess/VAE-Color-Balance)
 
 <br>
 <br>  
